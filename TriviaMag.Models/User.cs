@@ -1,16 +1,72 @@
 ﻿namespace TriviaMag.Models
 {
+    using System.Collections.Generic;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Claims;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class User : IdentityUser
     {
+        private ICollection<Game> games;
+        private ICollection<Question> wrongQuestions;
+        private ICollection<Question> answeredQuestions;
+
+        public User()
+            : base()
+        {
+            this.games = new HashSet<Game>();
+            this.wrongQuestions = new HashSet<Question>();
+            this.answeredQuestions = new HashSet<Question>();
+            this.Score = 0;
+        }
+
+        public string PicturePath { get; set; }
+
+        public Rank Rank { get; set; }
+
+        public int Score { get; set; }
+
+        public virtual ICollection<Question> WrongQuestions
+        {
+            get
+            {
+                return this.wrongQuestions;
+            }
+
+            set
+            {
+                this.wrongQuestions = value;
+            }
+        }
+
+        public virtual ICollection<Question> AnsweredQuestions
+        {
+            get
+            {
+                return this.answeredQuestions;
+            }
+
+            set
+            {
+                this.answeredQuestions = value;
+            }
+        }
+
+        public virtual ICollection<Game> Games
+        {
+            get
+            {
+                return this.games;
+            }
+
+            set
+            {
+                this.games = value;
+            }
+        }
+
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

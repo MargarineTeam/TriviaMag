@@ -57,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201601221752002_InitialCreate.cs" />
+    <Compile Include="Migrations\201601221752002_InitialCreate.Designer.cs">
+      <DependentUpon>201601221752002_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TriviaMagDbContext.cs" />
   </ItemGroup>
@@ -69,6 +74,11 @@
       <Project>{4e1b9a86-fecd-4c48-ab51-9a32ab14a692}</Project>
       <Name>TriviaMag.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601221752002_InitialCreate.resx">
+      <DependentUpon>201601221752002_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

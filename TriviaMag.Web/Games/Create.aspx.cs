@@ -12,7 +12,7 @@ namespace TriviaMag.Web.Games
     public partial class Create : System.Web.UI.Page
     {
         [Inject]
-        public IGameService GameService { get; set; }
+        public IQuestionService GameService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {

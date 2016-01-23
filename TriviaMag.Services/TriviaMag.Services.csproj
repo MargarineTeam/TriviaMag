@@ -43,7 +43,7 @@
     <Compile Include="Contracts\IGameService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IQuestionService.cs" />
-    <Compile Include="GameSevice.cs" />
+    <Compile Include="GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionService.cs" />
     <Compile Include="Statistics.cs" />

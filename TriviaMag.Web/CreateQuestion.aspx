@@ -31,6 +31,6 @@
             <asp:Label ID="ThirdWrongAnswerLabel" runat="server" AssociatedControlID="ThirdWrongAnswerTextbox" ForeColor="Red" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
             <asp:TextBox ID="ThirdWrongAnswerTextbox" runat="server" ForeColor="Red" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
         </div>
-        <asp:Button ID="submitQuestionBtn" runat="server" OnClick="SubmitQuestion" />
+        <asp:Button ID="submitQuestionBtn" runat="server" OnClick="SubmitQuestion" Text=""/>
     </fieldset>
 </asp:Content>

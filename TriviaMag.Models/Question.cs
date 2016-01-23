@@ -8,6 +8,8 @@
 
         public bool IsApproved { get; set; }
 
+        public string Category { get; set; }
+
         public string WrongAnswerOne { get; set; }
 
         public string WrongAnswerTwo { get; set; }

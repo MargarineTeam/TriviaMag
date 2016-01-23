@@ -19,7 +19,6 @@
         {
             this.questions.Add(newQuestion);
             this.questions.SaveChanges();
-
         }
 
         public IQueryable<Question> GetAll()

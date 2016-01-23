@@ -8,6 +8,7 @@
         IQueryable<User> GetAll();
 
         User GetById(int id);
+
         Statistics getUserStatsById(int id);
     }
 }

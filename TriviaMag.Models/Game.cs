@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-
     public class Game
     {
         private ICollection<Question> questions;

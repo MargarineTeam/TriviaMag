@@ -1,9 +1,7 @@
 ﻿namespace TriviaMag.Data
 {
-    using System.Data.Entity;
-
     using Microsoft.AspNet.Identity.EntityFramework;
-
+    using System.Data.Entity;
     using TriviaMag.Models;
 
     public class TriviaMagDbContext : IdentityDbContext<User>
@@ -13,12 +11,14 @@
         {
         }
 
+        public override IDbSet<User> Users { get; set; }
+
         public virtual IDbSet<Game> Games { get; set; }
 
         public virtual IDbSet<Question> Questions { get; set; }
 
         public virtual IDbSet<Answer> Answers { get; set; }
-
+        
         public static TriviaMagDbContext Create()
         {
             return new TriviaMagDbContext();

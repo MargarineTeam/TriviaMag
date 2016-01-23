@@ -9,62 +9,17 @@
 
     public class User : IdentityUser
     {
-        private ICollection<Game> games;
-        private ICollection<Question> wrongQuestions;
-        private ICollection<Question> answeredQuestions;
+        private ICollection<Game> games; 
 
         public User()
-            : base()
         {
             this.games = new HashSet<Game>();
-            this.wrongQuestions = new HashSet<Question>();
-            this.answeredQuestions = new HashSet<Question>();
-            this.Score = 0;
         }
 
-        public string PicturePath { get; set; }
-
-        public Rank Rank { get; set; }
-
-        public int Score { get; set; }
-
-        public virtual ICollection<Question> WrongQuestions
+        public ICollection<Game> Games
         {
-            get
-            {
-                return this.wrongQuestions;
-            }
-
-            set
-            {
-                this.wrongQuestions = value;
-            }
-        }
-
-        public virtual ICollection<Question> AnsweredQuestions
-        {
-            get
-            {
-                return this.answeredQuestions;
-            }
-
-            set
-            {
-                this.answeredQuestions = value;
-            }
-        }
-
-        public virtual ICollection<Game> Games
-        {
-            get
-            {
-                return this.games;
-            }
-
-            set
-            {
-                this.games = value;
-            }
+            get { return this.games; }
+            set { this.games = value; }
         }
 
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)

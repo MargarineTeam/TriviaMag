@@ -8,7 +8,6 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security;
-    using TriviaMag.Web.Models;
     using TriviaMag.Data;
     using TriviaMag.Models;
 

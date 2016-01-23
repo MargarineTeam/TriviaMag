@@ -1,22 +1,21 @@
 namespace TriviaMag.Data.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    public sealed class Configuration : DbMigrationsConfiguration<TriviaMagDbContext>
+
+    public sealed class Configuration : DbMigrationsConfiguration<TriviaMag.Data.TriviaMagDbContext>
     {
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
-            //ContextKey = "TriviaMag.Data.TriviaMagDbContext";
+            ContextKey = "TriviaMag.Data.TriviaMagDbContext";
         }
 
-        protected override void Seed(TriviaMagDbContext context)
+        protected override void Seed(TriviaMag.Data.TriviaMagDbContext context)
         {
-            context.Answers.Count();
-            //context.Answers.AddOrUpdate(p => p.Value,
-            //    new Models.Answer { Value = "Veren otg" });
-
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

@@ -1,20 +1,28 @@
-﻿
-namespace TriviaMag.Services
+﻿namespace TriviaMag.Services
 {
-    using System;
     using System.Linq;
+
     using Models;
     using Contracts;
+    using Data.Repositories;
 
     public class GameSevice : IGameService
     {
+        private IRepository<Game> games;
 
-      
-
-        public IQueryable<User> GetAll()
+        public GameSevice(IRepository<Game> games)
         {
-            //return this.games.All();
-            throw new NotImplementedException();
+            this.games = games;
+        }
+
+        public IQueryable<Game> GetAll()
+        {
+            return this.games.All();
+        }
+
+        public Game GetById(int id)
+        {
+            return this.games.GetById(id);
         }
     }
 }

@@ -1,23 +1,35 @@
 ﻿namespace TriviaMag.Services
 {
-    using System;
     using System.Linq;
+
     using Contracts;
     using Models;
+    using Data.Repositories;
 
     public class UserService : IUserService
     {
-        //private readonly IRepository<User> users;
+        private IRepository<User> users;
 
-        //public GameSevice(IRepository<User> users)
-        //{
-        //    this.users = users;
-        //}
+        public UserService(IRepository<User> users)
+        {
+            this.users = users;
+        }
 
         public IQueryable<User> GetAll()
         {
-            //return this.users.All();
-            throw new NotImplementedException();
+            return this.users.All();
+        }
+
+        public User GetById(int id)
+        {
+            return this.users.GetById(id);
+        }
+
+        public Statistics getUserStatsById(int id)
+        {
+            var currentUser = this.users.GetById(id);
+
+            return new Statistics(1, 1, 1, 1, 1);
         }
     }
 }

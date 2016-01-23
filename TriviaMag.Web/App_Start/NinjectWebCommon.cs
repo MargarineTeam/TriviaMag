@@ -14,6 +14,7 @@ namespace TriviaMag.Web.App_Start
 
     using TriviaMag.Data;
     using Data.Repositories;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();

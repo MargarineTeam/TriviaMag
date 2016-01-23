@@ -4,8 +4,12 @@
     <fieldset>
         <legend>Create a new Question</legend>
         <div class="form-group row">
-            <asp:Label ID="categoryLabel" runat="server" for="categoryDropdown" CssClass="control-label col-md-1">Category:</asp:Label>
-            <asp:DropDownList ID="categoryDropdown" runat="server" CssClass="form-control col-md-3"></asp:DropDownList>
+            <div class="col-md-1">
+                <asp:Label ID="categoryLabel" runat="server" for="categoryDropdown" CssClass="control-label">Category:</asp:Label>
+            </div>
+            <div class="col-md-3">
+                <asp:DropDownList ID="categoryDropdown" runat="server" CssClass="form-control"></asp:DropDownList>
+            </div>
         </div>
         <div class="form-group row">
             <asp:Label ID="textLabel" runat="server" CssClass="control-label col-md-1">Question:</asp:Label>

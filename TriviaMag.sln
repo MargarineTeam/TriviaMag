@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaMag.Web", "TriviaMag.Web\TriviaMag.Web.csproj", "{4DB665EF-A9BD-492A-945B-27F1BF821754}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaMag.Models", "TriviaMag.Models\TriviaMag.Models.csproj", "{4E1B9A86-FECD-4C48-AB51-9A32AB14A692}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaMag.Services", "TriviaMag.Services\TriviaMag.Services.csproj", "{8B467DD8-704A-4569-B606-40ED0D18931F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaMag.Common", "TriviaMag.Common\TriviaMag.Common.csproj", "{003BE371-C52C-4611-8A54-DF0BB77DEB86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8B467DD8-704A-4569-B606-40ED0D18931F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B467DD8-704A-4569-B606-40ED0D18931F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B467DD8-704A-4569-B606-40ED0D18931F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{003BE371-C52C-4611-8A54-DF0BB77DEB86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003BE371-C52C-4611-8A54-DF0BB77DEB86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003BE371-C52C-4611-8A54-DF0BB77DEB86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003BE371-C52C-4611-8A54-DF0BB77DEB86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

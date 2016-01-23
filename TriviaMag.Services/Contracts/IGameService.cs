@@ -7,5 +7,7 @@
     {
         IQueryable<Game> GetAll();
 
+        Game GetById(int id);
+
     }
 }

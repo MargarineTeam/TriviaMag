@@ -8,19 +8,16 @@ using TriviaMag.Models;
 
 namespace TriviaMag.Web
 {
-    public partial class CreateQuestion : System.Web.UI.Page
+    public partial class CreateQuestion : Page
     {
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void SubmitQuestion(object sender, EventArgs e)
         {
             Question createQuestion = new Question();
-
-            
         }
     }
 }

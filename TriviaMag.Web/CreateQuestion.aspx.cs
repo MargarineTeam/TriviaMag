@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TriviaMag.Models;
 
 namespace TriviaMag.Web
 {
@@ -12,6 +13,13 @@ namespace TriviaMag.Web
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void SubmitQuestion(object sender, EventArgs e)
+        {
+            Question createQuestion = new Question();
+
             
         }
     }

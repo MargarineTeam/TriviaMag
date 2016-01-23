@@ -4,7 +4,7 @@
     using System.Data.Entity;
     using TriviaMag.Models;
 
-    public class TriviaMagDbContext : IdentityDbContext<User>
+    public class TriviaMagDbContext : IdentityDbContext<User>, ITriviaMagDbContext
     {
         public TriviaMagDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

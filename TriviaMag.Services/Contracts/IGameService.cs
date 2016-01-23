@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using TriviaMag.Models;
-
-namespace TriviaMag.Services.Contracts
+﻿namespace TriviaMag.Services.Contracts
 {
+    using System.Linq;
+    using Models;
+
     public interface IGameService
     {
-        IQueryable<User> GetAll();
+        IQueryable<Game> GetAll();
+
+        Game GetById(int id);
 
     }
 }

@@ -1,10 +1,14 @@
 ﻿namespace TriviaMag.Services.Contracts
 {
     using System.Linq;
-    using TriviaMag.Models;
+    using Models;
 
     public interface IUserService
     {
         IQueryable<User> GetAll();
+
+        User GetById(int id);
+
+        Statistics getUserStatsById(int id);
     }
 }

@@ -449,13 +449,13 @@
       <Project>{003be371-c52c-4611-8a54-df0bb77deb86}</Project>
       <Name>TriviaMag.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TriviaMag.Data\TriviaMag.Data.csproj">
-      <Project>{f806003a-bdb1-4aee-8e3c-0578d4f28cb6}</Project>
-      <Name>TriviaMag.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TriviaMag.Models\TriviaMag.Models.csproj">
       <Project>{4e1b9a86-fecd-4c48-ab51-9a32ab14a692}</Project>
       <Name>TriviaMag.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TriviaMag.Services\TriviaMag.Services.csproj">
+      <Project>{8b467dd8-704a-4569-b606-40ed0d18931f}</Project>
+      <Name>TriviaMag.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -9,8 +9,11 @@ namespace TriviaMag.Web.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
+    using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
 
+    using TriviaMag.Data;
+    using Data.Repositories;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -61,6 +64,12 @@ namespace TriviaMag.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<ITriviaMagDbContext>().To<TriviaMagDbContext>().InRequestScope();
+            kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>));
+            //kernel.Bind(b => b
+            //    .From(Assemblies.DataServices)
+            //    .SelectAllClasses()
+            //    .BindDefaultInterface());
         }        
     }
 }

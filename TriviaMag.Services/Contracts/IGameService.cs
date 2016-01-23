@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using TriviaMag.Models;
 
 namespace TriviaMag.Services.Contracts
 {
-    interface IUser
+    public interface IGameService
     {
+        IQueryable<User> GetAll();
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace TriviaMag.Services.Contracts
 {
     using System.Linq;
-    using Models;
+    using TriviaMag.Models;
 
     public interface IUserService
     {

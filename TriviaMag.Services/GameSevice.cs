@@ -9,16 +9,11 @@ namespace TriviaMag.Services
     public class GameSevice : IGameService
     {
 
-        //private readonly IRepository<User> users;
-
-        //public GameSevice(IRepository<User> users)
-        //{
-        //    this.users = users;
-        //}
+      
 
         public IQueryable<User> GetAll()
         {
-            //return this.users.All();
+            //return this.games.All();
             throw new NotImplementedException();
         }
     }

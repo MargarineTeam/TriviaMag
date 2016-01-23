@@ -14,15 +14,18 @@ namespace TriviaMag.Common
 
         public const string Entertainment = "Entertainment";
 
-        public const string ASD = "dasds";
-
-        public readonly string[] CategoriesList =
+        public ICollection<string> GetCategories()
         {
+            var list = new List<string>()
+            {
            "History",
            "Sport",
            "Art",
            "Science",
            "Entertainment"
-        };
+            };
+
+            return list;
+        }
     }
 }

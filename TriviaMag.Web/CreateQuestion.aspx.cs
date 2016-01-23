@@ -13,23 +13,16 @@ namespace TriviaMag.Web
 {
     public partial class CreateQuestion : Page
     {
+        private Categories categoriesConstants;
+
         [Inject]
         protected IQuestionService questions { get; set; }
 
-        //public CreateQuestion(IQuestionService questions)
-        //{
-        //    this.questions = questions;
-        //}
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            var list = new HashSet<string>();
-            list.Add(Categories.Art);
-            list.Add(Categories.Entertainment);
-            list.Add(Categories.History);
-            list.Add(Categories.Science);
-            list.Add(Categories.Sport);
-            this.categoryDropdown.DataSource = list;
+            this.categoriesConstants = new Categories();
+            var categoriesList = this.categoriesConstants.GetCategories();
+            this.categoryDropdown.DataSource = categoriesList;
             this.categoryDropdown.DataBind();
         }
 

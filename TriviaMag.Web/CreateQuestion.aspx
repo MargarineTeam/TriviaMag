@@ -5,10 +5,12 @@
         <legend>Create a new Question</legend>
         <div class="form-group row">
             <div class="col-md-1">
-                <asp:Label ID="categoryLabel" runat="server" AssociatedControlId="categoryDropdown"  CssClass="control-label">Category:</asp:Label>
+                <asp:Label ID="categoryLabel" runat="server" AssociatedControlID="categoryDropdown" CssClass="control-label">Category:</asp:Label>
             </div>
             <div class="col-md-3">
-                <asp:DropDownList ID="categoryDropdown" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="categoryDropdown" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                    <asp:ListItem Text="- Select category -" />
+                </asp:DropDownList>
             </div>
         </div>
         <div class="form-group row">

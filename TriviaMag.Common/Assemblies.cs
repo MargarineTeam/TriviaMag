@@ -2,6 +2,6 @@
 {
     public class Assemblies
     {
-        public const string DataServices = "TriviaMag.Services.Data";
+        public const string DataServices = "TriviaMag.Services";
     }
 }

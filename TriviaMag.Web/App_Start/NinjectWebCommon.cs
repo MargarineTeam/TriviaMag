@@ -14,6 +14,7 @@ namespace TriviaMag.Web.App_Start
 
     using TriviaMag.Data;
     using Data.Repositories;
+    using Common;
 
     public static class NinjectWebCommon 
     {
@@ -67,10 +68,10 @@ namespace TriviaMag.Web.App_Start
         {
             kernel.Bind<ITriviaMagDbContext>().To<TriviaMagDbContext>().InRequestScope();
             kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>));
-            //kernel.Bind(b => b
-            //    .From(Assemblies.DataServices)
-            //    .SelectAllClasses()
-            //    .BindDefaultInterface());
+            kernel.Bind(b => b
+                .From(Assemblies.DataServices)
+                .SelectAllClasses()
+                .BindDefaultInterface());
         }        
     }
 }

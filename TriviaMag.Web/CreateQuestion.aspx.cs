@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TriviaMag.Models;
+using TriviaMag.Services.Contracts;
 
 namespace TriviaMag.Web
 {
@@ -12,14 +13,16 @@ namespace TriviaMag.Web
     {
         //private IQuestionService questions;
 
-        public CreateQuestion()
-        {
+        //public CreateQuestion(IQuestionService questions)
+        //{
+        //    this.questions = questions;
+        //}
 
-        }
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //this.categoryDropdown.DataSource = 
         }
 
         protected void SubmitQuestion(object sender, EventArgs e)
@@ -38,6 +41,10 @@ namespace TriviaMag.Web
                 WrongAnswerTwo = wrongAnswerTwo,
                 WrongAnswerThree = wrongAnswerThree
             };
+
+            //this.questions.CreateQuestion(createQuestion);
+
+            Response.Redirect("~/Default");
         }
     }
 }

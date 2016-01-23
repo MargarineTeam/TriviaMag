@@ -17,8 +17,6 @@
 
         public virtual IDbSet<Question> Questions { get; set; }
 
-        public virtual IDbSet<Answer> Answers { get; set; }
-        
         public static TriviaMagDbContext Create()
         {
             return new TriviaMagDbContext();

@@ -6,11 +6,11 @@
     using Contracts;
     using Data.Repositories;
 
-    public class GameSevice : IGameService
+    public class GameService : IGameService
     {
         private IRepository<Game> games;
 
-        public GameSevice(IRepository<Game> games)
+        public GameService(IRepository<Game> games)
         {
             this.games = games;
         }

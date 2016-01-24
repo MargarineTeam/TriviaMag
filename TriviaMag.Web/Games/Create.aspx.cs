@@ -14,6 +14,7 @@ namespace TriviaMag.Web.Games
     public partial class Create : Page
     {
         private Categories categoriesConstants;
+        private Game game;
 
         [Inject]
         public IGameService GameService { get; set; }
@@ -27,15 +28,35 @@ namespace TriviaMag.Web.Games
             {
                 this.categoriesConstants = new Categories();
                 var categoriesList = categoriesConstants.GetCategories();
-                this.CategoryDropdown.DataSource = categoriesList;
-                this.CategoryDropdown.DataBind();
+                var currentUser = UserService.GetAll()
+                         .Where(x => x.UserName == this.User.Identity.Name)
+                         .FirstOrDefault();
+
+                this.game = new Game
+                {
+                    CreatorId = currentUser.Id,
+                    IsFinished = false,
+                    CreatorScore = 0,
+                    ReceiverScore = 0
+                };
+
+                Session["game"] = game;
             }
+        }
+
+        public void ChooseCategory(Object sender, EventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+            var category = btn.CommandArgument.ToString();
+            var current = (Game)Session["game"];
+            current.Category = category;
+            Session["game"] = current;
         }
 
         public IQueryable<User> GetUsers()
         {
             var currentUser = HttpContext.Current.User.Identity.Name;
-            return this.UserService.GetAll().Where(x=> x.UserName != currentUser).OrderBy(x=>x.UserName);
+            return this.UserService.GetAll().Where(x => x.UserName != currentUser).OrderBy(x => x.UserName);
         }
     }
 }

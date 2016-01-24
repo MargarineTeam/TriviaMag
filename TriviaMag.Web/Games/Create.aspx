@@ -10,41 +10,32 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <asp:ImageButton ID="ArtCategory" runat="server" ImageUrl="~/images/art.jpg" CssClass="img-responsive" />
+                        <asp:ImageButton ID="ArtCategory" runat="server" ImageUrl="~/images/art.jpg" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="Art" CommandName="Art" />
                     </div>
                     <div class="col-md-4">
-                        <asp:ImageButton ID="HistoryCategory" runat="server" ImageUrl="~/images/history.jpg" CssClass="img-responsive" />
+                        <asp:ImageButton ID="HistoryCategory" runat="server" ImageUrl="~/images/history.jpg" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="History" CommandName="History" />
                     </div>
                     <div class="col-md-4">
-                        <asp:ImageButton ID="SportCategory" runat="server" ImageUrl="~/images/sport.png" CssClass="img-responsive" />
+                        <asp:ImageButton ID="SportCategory" runat="server" ImageUrl="~/images/sport.png" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="Sport" CommandName="Sport" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <asp:ImageButton ID="SienceCategory" runat="server" ImageUrl="~/images/science.jpg" CssClass="img-responsive" />
+                        <asp:ImageButton ID="SienceCategory" runat="server" ImageUrl="~/images/science.jpg" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="Science" CommandName="Science" />
                     </div>
                     <div class="col-md-6">
-                        <asp:ImageButton ID="EntertainmentCategory" runat="server" ImageUrl="~/images/entertainment.jpg" CssClass="img-responsive" />
+                        <asp:ImageButton ID="EntertainmentCategory" runat="server" ImageUrl="~/images/entertainment.jpg" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="Entertainment" CommandName="Entertainment" />
                     </div>
                 </div>
             </div>
         </div>
-
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" SelectMethod="GetUsers">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
             </Columns>
         </asp:GridView>
-        <div class="form-group row">
-            <div class="col-md-1">
-                <asp:Label ID="CategoryLabel" runat="server" AssociatedControlID="CategoryDropdown" CssClass="control-label">Category:</asp:Label>
-            </div>
-            <div class="col-md-3">
-                <asp:DropDownList ID="CategoryDropdown" runat="server" CssClass="form-control" AppendDataBoundItems="true">
-                    <asp:ListItem Text="- Select category -" />
-                </asp:DropDownList>
-            </div>
-        </div>
     </fieldset>
 </asp:Content>

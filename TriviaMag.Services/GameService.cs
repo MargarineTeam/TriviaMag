@@ -5,6 +5,7 @@
     using Models;
     using Contracts;
     using Data.Repositories;
+    using System;
 
     public class GameService : IGameService
     {
@@ -28,6 +29,11 @@
         {
             this.games.Add(game);
             this.games.SaveChanges();
+        }
+
+        public void UpdateGame(Game game)
+        {
+            throw new NotImplementedException();
         }
     }
 }

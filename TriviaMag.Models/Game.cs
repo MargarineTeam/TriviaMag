@@ -22,11 +22,11 @@
 
         public virtual User Creator { get; set; }
 
-        public int CreatorId { get; set; }
+        public string CreatorId { get; set; }
 
         public virtual User Receiver { get; set; }
 
-        public int ReceiverId { get; set; }
+        public string ReceiverId { get; set; }
 
         public int CreatorScore { get; set; }
 

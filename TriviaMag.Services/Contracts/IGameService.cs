@@ -9,5 +9,8 @@
 
         Game GetById(int id);
 
+        void CreateGame(Game game);
+
+        void UpdateGame(Game game);
     }
 }

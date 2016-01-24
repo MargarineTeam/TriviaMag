@@ -231,6 +231,12 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Games\Create.aspx" />
     <Content Include="Games\Play.aspx" />
+    <Content Include="images\art.jpg" />
+    <Content Include="images\entertainment.jpg" />
+    <Content Include="images\history.jpg" />
+    <Content Include="images\science.jpg" />
+    <Content Include="images\sport.png" />
+    <Content Include="images\triviamagHome.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />

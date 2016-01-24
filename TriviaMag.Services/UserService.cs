@@ -27,7 +27,9 @@
 
         public Statistics getUserStatsById(int id)
         {
+            //TODO finish
             var currentUser = this.users.GetById(id);
+            var userGames = currentUser.Games;
 
             return new Statistics(1, 1, 1, 1, 1);
         }

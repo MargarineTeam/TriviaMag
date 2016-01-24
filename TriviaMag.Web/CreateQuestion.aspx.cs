@@ -20,6 +20,13 @@ namespace TriviaMag.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var some = this.User;
+
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                //Redirect to Default page
+                Response.Redirect("~/Default.aspx");
+            }
             this.categoriesConstants = new Categories();
             var categoriesList = this.categoriesConstants.GetCategories();
             this.categoryDropdown.DataSource = categoriesList;

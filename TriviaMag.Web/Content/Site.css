@@ -32,7 +32,29 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
+}
+
+.homeMag {
+
+    font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
+    font-size: 104px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 800;
+    line-height: 56.4px;
+}
+
+.gettingStarted {
+
+    font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
+    font-size: 54px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+    line-height: 26.4px;
+    opacity: 0.7;
 }

@@ -230,11 +230,13 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Games\Create.aspx" />
+    <Content Include="Games\Play.aspx" />
     <Content Include="images\art.jpg" />
     <Content Include="images\entertainment.jpg" />
     <Content Include="images\history.jpg" />
     <Content Include="images\science.jpg" />
     <Content Include="images\sport.png" />
+    <Content Include="images\triviamagHome.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -431,6 +433,13 @@
     </Compile>
     <Compile Include="Games\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Play.aspx.cs">
+      <DependentUpon>Play.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Games\Play.aspx.designer.cs">
+      <DependentUpon>Play.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -33,7 +33,8 @@
 
         public void UpdateGame(Game game)
         {
-            throw new NotImplementedException();
+            this.games.Update(game);
+            this.games.SaveChanges();
         }
     }
 }

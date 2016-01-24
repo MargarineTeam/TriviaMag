@@ -1,16 +1,15 @@
-﻿using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using TriviaMag.Common;
-using TriviaMag.Models;
-using TriviaMag.Services.Contracts;
-
-namespace TriviaMag.Web
+﻿namespace TriviaMag.Web
 {
+    using System;
+    using System.Web;
+    using System.Web.UI;
+
+    using Ninject;
+
+    using TriviaMag.Common;
+    using TriviaMag.Models;
+    using TriviaMag.Services.Contracts;
+
     public partial class CreateQuestion : Page
     {
         private Categories categoriesConstants;
@@ -20,13 +19,11 @@ namespace TriviaMag.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var some = this.User;
-
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                //Redirect to Default page
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Unauthorized/Unauthorized.aspx");
             }
+
             this.categoriesConstants = new Categories();
             var categoriesList = this.categoriesConstants.GetCategories();
             this.categoryDropdown.DataSource = categoriesList;

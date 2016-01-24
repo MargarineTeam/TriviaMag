@@ -41,11 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IGameService.cs" />
+    <Compile Include="Contracts\IRandomGenerator.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IQuestionService.cs" />
     <Compile Include="GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionService.cs" />
+    <Compile Include="Randoms\RandomGenerator.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>

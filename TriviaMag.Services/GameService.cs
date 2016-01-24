@@ -24,5 +24,10 @@
         {
             return this.games.GetById(id);
         }
+        public void CreateGame(Game game)
+        {
+            this.games.Add(game);
+            this.games.SaveChanges();
+        }
     }
 }

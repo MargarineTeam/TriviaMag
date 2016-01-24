@@ -22,6 +22,8 @@
 
         public string Role { get; set; }
 
+        public int Score { get; set; }
+
         public ICollection<Game> Games
         {
             get { return this.games; }

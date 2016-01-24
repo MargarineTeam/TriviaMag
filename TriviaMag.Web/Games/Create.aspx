@@ -31,10 +31,11 @@
         </div>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" SelectMethod="GetUsers">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                 <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                <asp:BoundField DataField="Score" HeaderText="Score" SortExpression="Score" />
+                <asp:CommandField ShowSelectButton="True"   SelectText="Take" ControlStyle-CssClass="btn btn-success"/>
             </Columns>
         </asp:GridView>
     </fieldset>

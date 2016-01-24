@@ -22,7 +22,8 @@
                 Email = Email.Text,
                 Role = "Private",
                 Firstname = FirstName.Text,
-                Lastname = LastName.Text
+                Lastname = LastName.Text,
+                Score = 0
             };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)

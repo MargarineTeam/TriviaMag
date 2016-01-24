@@ -16,7 +16,7 @@ namespace TriviaMag.Web
         private Categories categoriesConstants;
 
         [Inject]
-        protected IQuestionService questions { get; set; }
+        public IQuestionService questions { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -16,6 +16,12 @@
             this.games = new HashSet<Game>();
         }
 
+        public string Firstname { get; set; }
+
+        public string Lastname { get; set; }
+
+        public string Role { get; set; }
+
         public ICollection<Game> Games
         {
             get { return this.games; }

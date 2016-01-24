@@ -69,7 +69,6 @@ namespace TriviaMag.Web.App_Start
         {
             kernel.Bind<ITriviaMagDbContext>().To<TriviaMagDbContext>().InRequestScope();
             kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>));
-            //kernel.Bind(typeof(IGameService)).To(typeof(GameService));
             kernel.Bind(b => b
                 .From(Assemblies.DataServices)
                 .SelectAllClasses()

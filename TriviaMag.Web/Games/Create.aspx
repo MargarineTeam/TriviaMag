@@ -1,16 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="TriviaMag.Web.Games.Create" %>
+﻿<%@ Page Title="Create" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="TriviaMag.Web.Games.Create" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    <h1>TEST</h1>
-    </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="Create" ContentPlaceHolderID="MainContent" runat="server">
+    <fieldset>
+        <legend>Create Game</legend>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TriviaMagConnectionString %>" SelectCommand="SELECT [UserName] FROM [AspNetUsers] ORDER BY [UserName]"></asp:SqlDataSource>
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                </Columns>
+        </asp:GridView>
+         <div class="form-group row">
+                <div class="col-md-1">
+                    <asp:Label ID="CategoryLabel" runat="server" AssociatedControlID="CategoryDropdown" CssClass="control-label">Category:</asp:Label>
+                </div>
+                <div class="col-md-3">
+                    <asp:DropDownList ID="CategoryDropdown" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                        <asp:ListItem Text="- Select category -" />
+                    </asp:DropDownList>
+                </div>
+            </div>
+    </fieldset>
+</asp:Content>

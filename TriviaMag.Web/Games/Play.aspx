@@ -8,5 +8,9 @@
             </h3>
         </ItemTemplate>
     </asp:FormView>
-    <asp:Label ID="QuestionLabel" runat="server"></asp:Label>
+    <div id="questions">
+        <asp:Label ID="QuestionLabel" runat="server"></asp:Label>
+        <asp:RadioButtonList ID="RadioButtonList" runat="server" SelectMethod="GetAnswersData"></asp:RadioButtonList>
+    </div>
+    <asp:Button runat="server" ID="SubmitAnswerButton" Text="Submit Answer" OnClick="SubmitAnswerButton_Click"/>
 </asp:Content>

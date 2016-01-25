@@ -21,19 +21,51 @@
         {
 
         }
-
-        public ICollection<Game> GetFinishedGames()
+        public ICollection<Game> GridViewWaitingGames()
         {
             var currentUser = this.UserService.GetAll().Where(x => x.UserName == HttpContext.Current.User.Identity.Name).FirstOrDefault();
-            var games = this.GameService.GetAll().Where(x => x.CreatorId == currentUser.Id || x.ReceiverId == currentUser.Id).ToList();
+            var userGames = this.GameService.GetAll().Where(x => x.CreatorId == currentUser.Id || x.ReceiverId == currentUser.Id).ToList();
+            var waitingGames = new List<Game>();
+            foreach (var game in userGames)
+            {
+                if (!game.IsFinished && game.CreatorId == currentUser.Id)
+                {
+                    waitingGames.Add(game);
+                }
+            }
+
+            return waitingGames;
+        }
+
+        public ICollection<Game> GridViewPendingGames()
+        {
+            var currentUser = this.UserService.GetAll().Where(x => x.UserName == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+            var userGames = this.GameService.GetAll().Where(x => x.CreatorId == currentUser.Id || x.ReceiverId == currentUser.Id).ToList();
+            var waitingGames = new List<Game>();
+            foreach (var game in userGames)
+            {
+                if (!game.IsFinished && game.ReceiverId == currentUser.Id)
+                {
+                    waitingGames.Add(game);
+                }
+            }
+
+            return waitingGames;
+        }
+
+        public ICollection<Game> GridViewFinishedGames()
+        {
+            var currentUser = this.UserService.GetAll().Where(x => x.UserName == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+            var userGames = this.GameService.GetAll().Where(x => x.CreatorId == currentUser.Id || x.ReceiverId == currentUser.Id).ToList();
             var finishedGames = new List<Game>();
-            foreach (var game in games)
+            foreach (var game in userGames)
             {
                 if (game.IsFinished)
                 {
                     finishedGames.Add(game);
                 }
             }
+
             return finishedGames;
         }
     }

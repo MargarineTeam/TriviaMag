@@ -12,6 +12,14 @@
 
     public partial class Register : Page
     {
+        protected void Page_Prerender(object sender, EventArgs e)
+        {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/");
+            }
+        }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<UserManager>();

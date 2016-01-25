@@ -65,10 +65,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FileUploadControl" CssClass="col-md-2 control-label">Picture</asp:Label>
             <div class="col-md-10">
-                <label for="ImageUpload" class="col-md-2 control-label">Image:</label>
-            <div class="col-md-10">
-                <uc:FileUpload ID="FileUploadControl" runat="server" />
-            </div>
+                <uc:FileUpload ID="FileUploadControl" runat="server"  />
             </div>
         </div>
         <div class="form-group">

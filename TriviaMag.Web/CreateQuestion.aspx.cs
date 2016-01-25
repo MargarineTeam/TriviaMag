@@ -31,6 +31,7 @@
             var categoriesList = this.categoriesConstants.GetCategories();
             this.categoryDropdown.DataSource = categoriesList;
             this.categoryDropdown.DataBind();
+            //  this.DivLabelErrorMessage.Visible = false;
         }
 
         protected void SubmitQuestion(object sender, EventArgs e)
@@ -42,19 +43,39 @@
             var wrongAnswerThree = this.ThirdWrongAnswerTextbox.Text;
             var category = this.categoryDropdown.Text;
 
-            Question createQuestion = new Question()
+            if (correctAnswer != wrongAnswerOne && correctAnswer != wrongAnswerTwo && correctAnswer != wrongAnswerThree &&
+                wrongAnswerOne != wrongAnswerTwo && wrongAnswerOne != wrongAnswerThree &&
+                wrongAnswerTwo != wrongAnswerThree && category != "- Select category -")
             {
-                Text = questionText,
-                TrueAnswer = correctAnswer,
-                WrongAnswerOne = wrongAnswerOne,
-                WrongAnswerTwo = wrongAnswerTwo,
-                WrongAnswerThree = wrongAnswerThree,
-                Category = category
-            };
+                Question createQuestion = new Question()
+                {
+                    Text = questionText,
+                    TrueAnswer = correctAnswer,
+                    WrongAnswerOne = wrongAnswerOne,
+                    WrongAnswerTwo = wrongAnswerTwo,
+                    WrongAnswerThree = wrongAnswerThree,
+                    Category = category
+                };
 
-            this.questions.CreateQuestion(createQuestion);
+                this.questions.CreateQuestion(createQuestion);
 
-            Response.Redirect("~/Default");
+                Response.Redirect("~/");
+            }
+            else
+            {
+                var message = "Answers cannot be repeated!";
+
+                if (category == "- Select category -")
+                {
+                    message = "You must select category!";
+                }
+
+                //TODO: Add some error message!!!
+                this.DivLabelErrorMessage.Visible = true;
+                this.LabelErrorMessage.Text = message;
+                Response.Redirect("~/CreateQuestion");
+            }
+
         }
     }
 }

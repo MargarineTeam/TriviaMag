@@ -10,8 +10,7 @@
                 <h2><%: Page.Title %></h2>
             </hgroup>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-success successPanel">
+                    <div class="panel panel-success">
                             <div class="panel-heading text-center">Your Turn</div>
                             <asp:ListView ID="PendingGames" runat="server"
                                             SelectMethod="GridViewPendingGames"
@@ -66,15 +65,16 @@
                                         <asp:HyperLink runat="server" ID="PlayButton" NavigateUrl='<%# string.Format("~/Games/Play?id={0}", Item.Id)%>' class="btn btn-success" Text='Play' />
                                     </td>
                                 </tr>
-                            </ItemTemplate>
+                            </ItemTemplate> 
                             <EmptyDataTemplate runat="server">
                                 <h5 class="content-empty text-center">No pending games available</h5>
                             </EmptyDataTemplate>
                         </asp:ListView>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-primary">
+               
+            </div>
+            <div class="row">
+                    <div class="panel panel-danger">
                         <div class="panel-heading text-center">Waiting for Opponent</div>
                         <asp:ListView ID="WaitingGames" runat="server"
                             SelectMethod="GridViewWaitingGames"
@@ -129,11 +129,9 @@
                             </EmptyDataTemplate>
                         </asp:ListView>
                     </div>
-                </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-danger">
+                    <div class="panel panel-primary">
                         <div class="panel-heading text-center">Finished Games</div>
                         <asp:ListView ID="FinnishedGames" runat="server"
                             SelectMethod="GridViewFinishedGames"
@@ -196,7 +194,6 @@
                             </EmptyDataTemplate>
                         </asp:ListView>
                     </div>
-                </div>
             </div>
         </div>
     </section>

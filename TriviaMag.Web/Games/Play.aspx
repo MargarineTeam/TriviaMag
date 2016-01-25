@@ -1,14 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Play.aspx.cs" Inherits="TriviaMag.Web.Games.Play" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:FormView ID="playGameView" runat="server" SelectMethod="GetGameData" ItemType="TriviaMag.Models.Game">
-        <ItemTemplate>
+    <%--<asp:ScriptManager ID="ScriptManager" runat="server" />--%>
+
+    <asp:UpdatePanel runat="server" ID="QuestionUpdatePanel">
+        <ContentTemplate>
             <h3>
-                <strong><%# Item.Creator.UserName %></strong> vs <strong><%# Item.Receiver.UserName %></strong>
+                <strong><%# Eval("Creator.UserName") %></strong> vs <strong><%# Eval("Receiver.UserName") %></strong>
             </h3>
-        </ItemTemplate>
-    </asp:FormView>
-    <div id="clientQuestion">
+            <div>
+                <asp:Label ID="QuestionLabel" runat="server"></asp:Label>
+            </div>
+            <asp:RadioButtonList ID="RadioButtonList" runat="server" SelectMethod="GetAnswersData"></asp:RadioButtonList>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <%--<asp:FormView ID="playGameView" runat="server" SelectMethod="GetGameData" ItemType="TriviaMag.Models.Game">
+       
+    </asp:FormView>--%>
+    <%--<div id="clientQuestion">
         <asp:Label ID="QuestionLabel" runat="server"></asp:Label>
     </div>
     <div id="clientAnswers">
@@ -16,5 +25,5 @@
     </div>
     <span id="clientAnswerSubmit">
     <asp:Button runat="server" ID="SubmitAnswerButton" Text="Submit Answer" OnClick="SubmitAnswerButton_Click"/>
-    </span>
+    </span>--%>
 </asp:Content>

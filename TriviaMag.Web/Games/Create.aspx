@@ -16,7 +16,7 @@
                         <asp:ImageButton ID="HistoryCategory" runat="server" ImageUrl="~/images/history.jpg" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="History" CommandName="History" />
                     </div>
                     <div class="col-md-4">
-                        <asp:ImageButton ID="SportCategory" runat="server" ImageUrl="~/images/sport.png" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="Sport" CommandName="Sport" />
+                        <asp:ImageButton ID="SportCategory" runat="server" ImageUrl="~/images/sport.jpg" CssClass="img-responsive" OnClick="ChooseCategory" CommandArgument="Sport" CommandName="Sport" />
                     </div>
                 </div>
                 <div class="row">

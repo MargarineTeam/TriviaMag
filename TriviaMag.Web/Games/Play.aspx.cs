@@ -8,14 +8,19 @@
     using Ninject;
 
     using Services.Contracts;
-
+    using System.Web.Services;
+    using System.Web.Script.Services;
     public partial class Play : System.Web.UI.Page
     {
-        private int currentQuestion = 1;
+        private int currentQuestion = 0;
         private int currentGameId = 0;
+        private static int staticCurrentGameId = 0;
 
         [Inject]
         public IGameService games { get; set; }
+
+        [Inject]
+        public static IGameService staticGames { get; set; }
 
         protected void Page_Prerender(object sender, EventArgs e)
         {
@@ -33,7 +38,7 @@
 
         private void LoadFirstQuestion()
         {
-            this.QuestionLabel.Text = this.games.GetById(currentGameId).Questions.FirstOrDefault().Text;
+            this.QuestionLabel.Text = this.games.GetById(this.currentGameId).Questions.FirstOrDefault().Text;
             currentQuestion++;
         }
 
@@ -86,6 +91,13 @@
             {
                 this.games.GetById(currentGameId).ReceiverScore++;
             }
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
+        public static object GetGameServiceHttpGet(int category)
+        {
+            return staticGames.GetById(staticCurrentGameId);
         }
     }
 }

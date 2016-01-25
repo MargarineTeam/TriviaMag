@@ -232,6 +232,8 @@
     <Content Include="Games\Create.aspx" />
     <Content Include="Games\ListGames.aspx" />
     <Content Include="Games\Play.aspx" />
+    <Content Include="Games\Play.js" />
+    <Content Include="Games\Play_Proxy.js" />
     <Content Include="images\art.jpg" />
     <Content Include="images\entertainment.jpg" />
     <Content Include="images\history.jpg" />

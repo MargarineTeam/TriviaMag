@@ -58,3 +58,12 @@ input[type="select"] {
     line-height: 26.4px;
     opacity: 0.7;
 }
+.gamesListText{
+    font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans', 'Arial Red', 'sans serif';
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 100;
+    line-height: 21.4px;
+}
+

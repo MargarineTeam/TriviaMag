@@ -24,7 +24,6 @@
         {
             return this.users.GetById(id);
         }
-
         public Statistics getUserStatsById(int id)
         {
             //TODO finish

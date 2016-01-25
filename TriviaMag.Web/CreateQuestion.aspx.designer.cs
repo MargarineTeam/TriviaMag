@@ -13,6 +13,24 @@ namespace TriviaMag.Web {
     public partial class CreateQuestion {
         
         /// <summary>
+        /// DivLabelErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel DivLabelErrorMessage;
+        
+        /// <summary>
+        /// LabelErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelErrorMessage;
+        
+        /// <summary>
         /// categoryLabel control.
         /// </summary>
         /// <remarks>

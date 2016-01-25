@@ -31,6 +31,7 @@
             var categoriesList = this.categoriesConstants.GetCategories();
             this.categoryDropdown.DataSource = categoriesList;
             this.categoryDropdown.DataBind();
+            //  this.DivLabelErrorMessage.Visible = false;
         }
 
         protected void SubmitQuestion(object sender, EventArgs e)
@@ -42,9 +43,9 @@
             var wrongAnswerThree = this.ThirdWrongAnswerTextbox.Text;
             var category = this.categoryDropdown.Text;
 
-            if(correctAnswer != wrongAnswerOne && correctAnswer !=wrongAnswerTwo && correctAnswer != wrongAnswerThree &&
-                wrongAnswerOne!= wrongAnswerTwo && wrongAnswerOne != wrongAnswerThree &&
-                wrongAnswerTwo != wrongAnswerThree && category!= "- Select category -")
+            if (correctAnswer != wrongAnswerOne && correctAnswer != wrongAnswerTwo && correctAnswer != wrongAnswerThree &&
+                wrongAnswerOne != wrongAnswerTwo && wrongAnswerOne != wrongAnswerThree &&
+                wrongAnswerTwo != wrongAnswerThree && category != "- Select category -")
             {
                 Question createQuestion = new Question()
                 {
@@ -62,10 +63,19 @@
             }
             else
             {
+                var message = "Answers cannot be repeated!";
+
+                if (category == "- Select category -")
+                {
+                    message = "You must select category!";
+                }
+
                 //TODO: Add some error message!!!
+                this.DivLabelErrorMessage.Visible = true;
+                this.LabelErrorMessage.Text = message;
                 Response.Redirect("~/CreateQuestion");
             }
-           
+
         }
     }
 }

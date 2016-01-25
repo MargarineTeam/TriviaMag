@@ -19,17 +19,7 @@
                 Response.Redirect("~/");
             }
         }
-
-        protected void UploadButton_Click(object sender, EventArgs e)
-        {
-        //    if (FileUploadControl.HasFile)
-        //    {
-        //        //string filename = Path.GetFileName(FileUploadControl.FileName);
-        //        //FileUploadControl.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
-        //        //StatusLabel.Text = "Upload status: File uploaded!";
-        //    }
-        }
-
+        
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<UserManager>();

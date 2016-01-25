@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                             <div class="panel-heading text-center">Waiting for Opponent</div>
                             <asp:ListView ID="WaitingGames" runat="server"
                                             SelectMethod="GridViewWaitingGames"
@@ -134,7 +134,7 @@
                 </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-danger">
+                    <div class="panel panel-primary">
                             <div class="panel-heading text-center">Finished Games</div>
                             <asp:ListView ID="FinnishedGames" runat="server"
                                             SelectMethod="GridViewFinishedGames"

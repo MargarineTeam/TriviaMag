@@ -66,4 +66,7 @@ input[type="select"] {
     font-weight: 100;
     line-height: 21.4px;
 }
+.panel-heading{
+    color: #fff;
+}
 

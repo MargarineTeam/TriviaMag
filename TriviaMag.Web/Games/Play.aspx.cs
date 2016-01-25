@@ -63,6 +63,7 @@
             CheckIfCorrectAnswer();
             currentQuestion++;
             this.RadioButtonList.DataSource = GetAnswersData();
+            this.RadioButtonList.DataBind();
         }
 
         private void CheckIfCorrectAnswer()

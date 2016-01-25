@@ -17,13 +17,16 @@
         [Inject]
         public IQuestionService questions { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Prerender(object sender, EventArgs e)
         {
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/Unauthorized/Unauthorized.aspx");
             }
+        }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
             this.categoriesConstants = new Categories();
             var categoriesList = this.categoriesConstants.GetCategories();
             this.categoryDropdown.DataSource = categoriesList;

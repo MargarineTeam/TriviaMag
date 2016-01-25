@@ -23,6 +23,9 @@ namespace TriviaMag.Web.Games
         [Inject]
         public IUserService UserService { get; set; }
 
+        [Inject]
+        public IQuestionService QuestionService { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -70,9 +73,23 @@ namespace TriviaMag.Web.Games
             var test = Session["game"];
         }
 
-        public void CreateGame_Click()
+        public void CreateGame_Click(Object sender, EventArgs e)
         {
+            var currentGame = (Game)Session["game"];
+            var questions = this.QuestionService.GetRandomQuestionsByCategory(currentGame.Category);
+            var game = new Game
+            {
+                CreatorId = currentGame.CreatorId,
+                ReceiverId = currentGame.ReceiverId,
+                CreatorScore = currentGame.CreatorScore,
+                ReceiverScore = currentGame.ReceiverScore,
+                IsFinished = currentGame.IsFinished,
+                Category = currentGame.Category
+            };
 
+            game.Questions = questions;
+            GameService.CreateGame(game);
+            Response.Redirect("~/Games/Play?id=" + game.Id);
         }
     }
 }

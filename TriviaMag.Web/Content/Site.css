@@ -39,7 +39,6 @@ input[type="select"] {
 }
 
 .homeMag {
-
     font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
     font-size: 104px;
     font-style: normal;
@@ -49,7 +48,6 @@ input[type="select"] {
 }
 
 .gettingStarted {
-
     font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
     font-size: 54px;
     font-style: normal;
@@ -57,4 +55,9 @@ input[type="select"] {
     font-weight: 300;
     line-height: 26.4px;
     opacity: 0.7;
+}
+
+.categories {
+    width: 200px;
+    height: 150px;
 }

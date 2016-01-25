@@ -29,14 +29,23 @@
                 </div>
             </div>
         </div>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" SelectMethod="GetUsers">
+        <asp:GridView
+            ID="GridView1"
+            runat="server"
+            DataKeyNames="Id"
+            AllowPaging="True"
+            AllowSorting="True"
+            AutoGenerateColumns="False"
+            SelectMethod="GetUsers"
+            OnRowCommand="GridView1_RowCommand">
             <Columns>
-                <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                <asp:BoundField DataField="UserName" HeaderText="Username" SortExpression="UserName" />
+                <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />
+                <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
                 <asp:BoundField DataField="Score" HeaderText="Score" SortExpression="Score" />
-                <asp:CommandField ShowSelectButton="True"   SelectText="Take" ControlStyle-CssClass="btn btn-success"/>
+                <asp:ButtonField HeaderText="Choice" ButtonType="Button" CommandName="Select" Text="Take" ControlStyle-CssClass="btn btn-info" />
             </Columns>
         </asp:GridView>
+        <asp:Button ID="CreateGame" runat="server"  CssClass="btn btn-success" Text="Create Game"/>
     </fieldset>
 </asp:Content>

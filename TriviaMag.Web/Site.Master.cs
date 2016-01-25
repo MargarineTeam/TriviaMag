@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using Ninject;
+using TriviaMag.Services.Contracts;
 
 namespace TriviaMag.Web
 {
@@ -16,11 +18,15 @@ namespace TriviaMag.Web
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
 
+        [Inject]
+        public IUserService UserService { get; set; }
+
         protected void Page_Init(object sender, EventArgs e)
         {
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;
+
             if (requestCookie != null && Guid.TryParse(requestCookie.Value, out requestCookieGuidValue))
             {
                 // Use the Anti-XSRF token from the cookie
@@ -55,6 +61,7 @@ namespace TriviaMag.Web
                 // Set Anti-XSRF token
                 ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
                 ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
+
             }
             else
             {
@@ -69,6 +76,21 @@ namespace TriviaMag.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var currentUserId = Request.QueryString["Id"];
+
+            if (Context.User.Identity.IsAuthenticated)
+            {
+                var id = HttpContext.Current.User.Identity.GetUserId();
+                var user = this.UserService.GetById(id);
+                var currentUserImagePath = user.PicturePath;
+
+                if(currentUserImagePath== null)
+                {
+                    currentUserImagePath = "~/images/default.jpg";
+                }
+
+                (LoginView.FindControl("ProfileImage") as Image).ImageUrl = currentUserImagePath;
+            }
 
         }
 

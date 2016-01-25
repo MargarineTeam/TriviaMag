@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="TriviaMag.Web.Account.Register" %>
 
+<%@ Register TagPrefix="uc" TagName="FileUpload" Src="~/Controls/FileUpload.ascx" %>
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>
     <p class="text-danger">
@@ -10,26 +12,26 @@
         <h4>Create a new account</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
-         <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">Username</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="Username" CssClass="form-control"/>
+                <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The username field is required." />
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First Name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="FirstName" CssClass="form-control"/>
+                <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
                     CssClass="text-danger" ErrorMessage="The first name field is required." />
             </div>
         </div>
-          <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="LastName" CssClass="form-control"/>
+                <asp:TextBox runat="server" ID="LastName" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName"
                     CssClass="text-danger" ErrorMessage="The last name field is required." />
             </div>
@@ -58,6 +60,15 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="FileUploadControl" CssClass="col-md-2 control-label">Picture</asp:Label>
+            <div class="col-md-10">
+                <label for="ImageUpload" class="col-md-2 control-label">Image:</label>
+            <div class="col-md-10">
+                <uc:FileUpload ID="FileUploadControl" runat="server" />
+            </div>
             </div>
         </div>
         <div class="form-group">

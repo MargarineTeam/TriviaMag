@@ -8,7 +8,7 @@
     using System;
     using Common;
     using System.Collections.Generic;
-
+	
     public class UserService : IUserService
     {
         private IRepository<User> users;
@@ -26,7 +26,7 @@
             return this.users.All();
         }
 
-        public User GetById(int id)
+        public User GetById(String id)
         {
             return this.users.GetById(id);
         }

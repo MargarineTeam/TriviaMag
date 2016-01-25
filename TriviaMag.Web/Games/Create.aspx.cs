@@ -28,6 +28,11 @@ namespace TriviaMag.Web.Games
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Unauthorized/Unauthorized.aspx");
+            }
+
             if (!this.IsPostBack)
             {
                 this.categoriesConstants = new Categories();
@@ -89,6 +94,7 @@ namespace TriviaMag.Web.Games
 
             game.Questions = questions;
             GameService.CreateGame(game);
+            Session["game"] = "";
             Response.Redirect("~/Games/Play?id=" + game.Id);
         }
     }

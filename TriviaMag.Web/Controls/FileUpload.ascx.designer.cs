@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TriviaMag.Web {
+namespace TriviaMag.Web.Controls {
     
     
-    public partial class SiteMaster {
+    public partial class FileUpload {
         
         /// <summary>
-        /// MainContent control.
+        /// ImageUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-
+        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+        
         /// <summary>
-        /// LoginView control.
+        /// RequiredFieldImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldImage;
     }
 }

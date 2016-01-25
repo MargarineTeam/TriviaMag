@@ -12,7 +12,7 @@
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/");
             }
 
             RegisterHyperLink.NavigateUrl = "Register";

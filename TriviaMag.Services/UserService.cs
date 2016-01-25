@@ -5,7 +5,7 @@
     using Contracts;
     using Models;
     using Data.Repositories;
-
+    using System;
     public class UserService : IUserService
     {
         private IRepository<User> users;
@@ -20,7 +20,7 @@
             return this.users.All();
         }
 
-        public User GetById(int id)
+        public User GetById(String id)
         {
             return this.users.GetById(id);
         }

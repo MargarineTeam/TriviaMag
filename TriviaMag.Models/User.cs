@@ -9,12 +9,14 @@
 
     public class User : IdentityUser
     {
-        private ICollection<Game> games; 
+        private ICollection<Game> games;
 
         public User()
         {
             this.games = new HashSet<Game>();
         }
+
+        public string PicturePath { get; set; }
 
         public string Firstname { get; set; }
 

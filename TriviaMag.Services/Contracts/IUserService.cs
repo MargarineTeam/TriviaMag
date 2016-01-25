@@ -2,12 +2,12 @@
 {
     using System.Linq;
     using Models;
-
+    using System;
     public interface IUserService
     {
         IQueryable<User> GetAll();
 
-        User GetById(int id);
+        User GetById(String id);
 
         IQueryable<Statistics> getUserStatsById(string id);
 

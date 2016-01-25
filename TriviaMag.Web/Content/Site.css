@@ -92,3 +92,8 @@ boby::after{
 
 }
 
+.centered-profile-image {
+    width: 60px;
+    height: 60px;
+    margin-top: 3%;
+}

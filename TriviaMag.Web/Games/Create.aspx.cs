@@ -9,6 +9,7 @@ using TriviaMag.Services.Contracts;
 using TriviaMag.Common;
 using TriviaMag.Models;
 
+
 namespace TriviaMag.Web.Games
 {
     public partial class Create : Page
@@ -57,6 +58,21 @@ namespace TriviaMag.Web.Games
         {
             var currentUser = HttpContext.Current.User.Identity.Name;
             return this.UserService.GetAll().Where(x => x.UserName != currentUser).OrderBy(x => x.UserName);
+        }
+
+        public void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
+        {
+            var row = int.Parse(e.CommandArgument.ToString());
+            var id = this.GridView1.DataKeys[row].Value.ToString();
+            var current = (Game)Session["game"];
+            current.ReceiverId = id;
+            Session["game"] = current;
+            var test = Session["game"];
+        }
+
+        public void CreateGame_Click()
+        {
+
         }
     }
 }

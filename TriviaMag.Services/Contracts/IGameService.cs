@@ -12,5 +12,7 @@
         void CreateGame(Game game);
 
         void UpdateGame(Game game);
+
+        //IQueryable<Game> GetAllFinishedGamesById(string id);
     }
 }

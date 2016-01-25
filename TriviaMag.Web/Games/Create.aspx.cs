@@ -69,5 +69,10 @@ namespace TriviaMag.Web.Games
             Session["game"] = current;
             var test = Session["game"];
         }
+
+        public void CreateGame_Click()
+        {
+
+        }
     }
 }

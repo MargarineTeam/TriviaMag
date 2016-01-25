@@ -1,29 +1,36 @@
 ﻿namespace TriviaMag.Web.Games
 {
-    using Services.Contracts;
     using System;
     using System.Linq;
+    using System.Web;
+    using System.Web.ModelBinding;
 
     using Ninject;
 
-    using TriviaMag.Models;
-    using System.Web.ModelBinding;
+    using Services.Contracts;
+
     public partial class Play : System.Web.UI.Page
     {
-        private Game currentGame;
-        private int currentGameId;
-
         [Inject]
         public IGameService games { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Prerender(object sender, EventArgs e)
         {
-            LoadFirstQuestion(currentGameId);
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Unauthorized/Unauthorized.aspx");
+            }
         }
 
-        private void LoadFirstQuestion([QueryString("id")]int gameID)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            this.QuestionLabel.Text = this.games.GetById(gameID).Questions.FirstOrDefault().Text;
+            LoadFirstQuestion(Request.QueryString["id"]);
+        }
+
+        private void LoadFirstQuestion(string gameID)
+        {
+            var id = int.Parse(gameID);
+            this.QuestionLabel.Text = this.games.GetById(id).Questions.FirstOrDefault().Text;
         }
 
         private string NextQuestion()
@@ -33,7 +40,6 @@
 
         public object GetGameData([QueryString("id")]int gameID)
         {
-            currentGameId = gameID;
             return this.games.GetById(gameID);
         }
     }

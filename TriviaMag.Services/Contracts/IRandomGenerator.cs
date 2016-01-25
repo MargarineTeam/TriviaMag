@@ -5,8 +5,6 @@
 
     public interface IRandomGenerator
     {
-        int GetRandomNumbers(int min, int max);
-
         List<Question> ShuffleQuestions(List<Question> list);
     }
 }

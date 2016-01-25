@@ -230,6 +230,7 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Games\Create.aspx" />
+    <Content Include="Games\ListGames.aspx" />
     <Content Include="Games\Play.aspx" />
     <Content Include="images\art.jpg" />
     <Content Include="images\entertainment.jpg" />
@@ -433,6 +434,13 @@
     </Compile>
     <Compile Include="Games\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Games\ListGames.aspx.cs">
+      <DependentUpon>ListGames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Games\ListGames.aspx.designer.cs">
+      <DependentUpon>ListGames.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games\Play.aspx.cs">
       <DependentUpon>Play.aspx</DependentUpon>

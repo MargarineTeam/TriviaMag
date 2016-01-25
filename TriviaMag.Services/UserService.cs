@@ -5,14 +5,20 @@
     using Contracts;
     using Models;
     using Data.Repositories;
+    using System;
+    using Common;
+    using System.Collections.Generic;
 
     public class UserService : IUserService
     {
         private IRepository<User> users;
 
-        public UserService(IRepository<User> users)
+        private IRepository<Game> games;
+
+        public UserService(IRepository<User> users, IRepository<Game> games)
         {
             this.users = users;
+            this.games = games;
         }
 
         public IQueryable<User> GetAll()
@@ -24,13 +30,40 @@
         {
             return this.users.GetById(id);
         }
-        public Statistics getUserStatsById(int id)
-        {
-            //TODO finish
-            var currentUser = this.users.GetById(id);
-            var userGames = currentUser.Games;
 
-            return new Statistics(1, 1, 1, 1, 1);
+        public User GetByUsername(string username)
+        {
+            return this.users.All().Where(u => u.UserName == username).FirstOrDefault();
+        }
+
+        public IQueryable<Statistics> getUserStatsById(string id)
+        {
+            var currentUser = this.users.GetById(id);
+            var userGames = this.games.All().Where(x => x.CreatorId == currentUser.Id || x.ReceiverId == currentUser.Id).ToList();
+            var gamesGrouped = userGames.GroupBy(g => g.Category);
+            var result = new List<Statistics>();
+
+            foreach (var group in gamesGrouped)
+            {
+                var currentStat = new Statistics();
+                currentStat.Games = group.Count();
+                currentStat.Name = group.FirstOrDefault().Category.ToLower();
+                var winGamesCount = 0;
+                foreach (var game in group)
+                {
+                    if ((game.Creator.Id == currentUser.Id && game.CreatorScore > game.ReceiverScore) ||
+                        (game.ReceiverId == currentUser.Id && game.ReceiverScore > game.CreatorScore))
+                    {
+                        winGamesCount++;
+                    }
+                }
+                decimal percentage = (winGamesCount * 100) / currentStat.Games;
+                currentStat.Percentage = percentage;
+                result.Add(currentStat);
+            }
+            result.OrderBy(x => x.Percentage);
+
+            return result.AsQueryable();
         }
     }
 }

@@ -39,7 +39,6 @@ input[type="select"] {
 }
 
 .homeMag {
-
     font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
     font-size: 104px;
     font-style: normal;
@@ -48,17 +47,21 @@ input[type="select"] {
     line-height: 56.4px;
 }
 
-.gettingStarted {
+@font-face {
+    font-family: SuperFont;
+    src: url('../fonts/Bohemian typewriter.ttf');
+}
 
-    font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
-    font-size: 54px;
+.gettingStarted {
+    font-family: SuperFont;
+    font-size: 40px;
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
     line-height: 26.4px;
-    opacity: 0.7;
 }
-.gamesListText{
+
+.gamesListText {
     font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans', 'Arial Red', 'sans serif';
     font-size: 20px;
     font-style: normal;
@@ -66,7 +69,21 @@ input[type="select"] {
     font-weight: 100;
     line-height: 21.4px;
 }
-.panel-heading{
-    color: #fff;
+
+.statsImg {
+    width: 80px;
+    height: 60px;
+}
+
+.statsTExt {
+    color: #EB6864;
+}
+
+body {
+    background-image: url("../images/backgr1.jpg");
+     position:relative;
+}
+boby::after{
+
 }
 

@@ -1,6 +1,7 @@
 ﻿<%@ page title="" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="ListGames.aspx.cs" inherits="TriviaMag.Web.Games.ListGames" %>
 
 <asp:content id="Content1" contentplaceholderid="MainContent" runat="server">
+    <div class="jumbotron text-center" style="background-color: #463851;">
     <section>
         <div>
             <hgroup>
@@ -9,7 +10,7 @@
              <div class="row">
                  <div class="col-md-6">
                     <div class="panel panel-success successPanel">
-                            <div class="panel-heading text-center">Pending Games</div>
+                            <div class="panel-heading text-center">Your Turn</div>
                             <asp:ListView ID="PendingGames" runat="server"
                                             SelectMethod="GridViewPendingGames"
                                             ItemType="TriviaMag.Models.Game"
@@ -74,7 +75,7 @@
                     </div>
                 <div class="col-md-6">
                     <div class="panel panel-danger">
-                            <div class="panel-heading text-center">Waiting for Opponent</div>
+                            <div class="panel-heading text-center">Their Turn</div>
                             <asp:ListView ID="WaitingGames" runat="server"
                                             SelectMethod="GridViewWaitingGames"
                                             ItemType="TriviaMag.Models.Game"
@@ -201,6 +202,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </section>
 </asp:content>

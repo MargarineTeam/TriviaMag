@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +53,10 @@
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TriviaMag.Common\TriviaMag.Common.csproj">
+      <Project>{003be371-c52c-4611-8a54-df0bb77deb86}</Project>
+      <Name>TriviaMag.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TriviaMag.Data\TriviaMag.Data.csproj">
       <Project>{f806003a-bdb1-4aee-8e3c-0578d4f28cb6}</Project>
       <Name>TriviaMag.Data</Name>

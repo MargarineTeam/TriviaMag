@@ -36,10 +36,5 @@
             this.games.Update(game);
             this.games.SaveChanges();
         }
-
-        //public IQueryable<Game> GetAllFinishedGamesById(string id)
-        //{
-            
-        //}
     }
 }

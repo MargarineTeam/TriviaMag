@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListGames.aspx.cs" Inherits="TriviaMag.Web.Games.ListGames" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+<asp:content id="Content1" contentplaceholderid="MainContent" runat="server">
+    <div class="jumbotron text-center" style="background-color: #463851;">
+
     <section>
         <div>
             <hgroup>
@@ -9,40 +12,39 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-success successPanel">
-                        <div class="panel-heading text-center">Pending Games</div>
-                        <asp:ListView ID="PendingGames" runat="server"
-                            SelectMethod="GridViewPendingGames"
-                            ItemType="TriviaMag.Models.Game"
-                            AllowPaging="True"
-                            EnableSortingAndPagingCallback="True"
-                            DataKeyNames="Id"
-                            AutoGenerateColumns="false">
-                            <LayoutTemplate>
-                                <table class="table table-striped table-hover">
-                                    <tr>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Category" runat="server" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Attacker" runat="server" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Defender" runat="server" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Attacker Points" runat="server" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Deffender Points" runat="server" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Play :}" runat="server" />
-                                        </th>
-                                    </tr>
-                                    <asp:PlaceHolder ID="itemplaceholder" runat="server" />
-                                </table>
-                            </LayoutTemplate>
-
+                            <div class="panel-heading text-center">Your Turn</div>
+                            <asp:ListView ID="PendingGames" runat="server"
+                                            SelectMethod="GridViewPendingGames"
+                                            ItemType="TriviaMag.Models.Game"
+                                            AllowPaging="True"
+                                            EnableSortingAndPagingCallback="True"
+                                            DataKeyNames="Id"
+                                            AutoGenerateColumns="false">
+                                            <LayoutTemplate>
+                                                <table class="table table-striped table-hover">
+                                                    <tr>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Category" runat="server" />
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Attacker" runat="server" />
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Defender" runat="server"/>
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Attacker Points" runat="server" />
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Deffender Points" runat="server" />
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Play :}" runat="server" />
+                                                        </th>
+                                                    </tr>
+                                                    <asp:PlaceHolder ID="itemplaceholder" runat="server" />
+                                                </table>
+                                            </LayoutTemplate>
                             <ItemTemplate runat="server">
                                 <tr class="text-center gamesListText" style="color: crimson;">
                                     <td>
@@ -65,7 +67,6 @@
                                     </td>
                                 </tr>
                             </ItemTemplate>
-
                             <EmptyDataTemplate runat="server">
                                 <h5 class="content-empty text-center">No pending games available</h5>
                             </EmptyDataTemplate>
@@ -104,7 +105,6 @@
                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />
                                 </table>
                             </LayoutTemplate>
-
                             <ItemTemplate runat="server">
                                 <tr class="text-center gamesListText" style="color: crimson;">
                                     <td>
@@ -124,7 +124,6 @@
                                     </td>
                                 </tr>
                             </ItemTemplate>
-
                             <EmptyDataTemplate runat="server">
                                 <h5 class="content-empty text-center">No such games available</h5>
                             </EmptyDataTemplate>
@@ -189,11 +188,9 @@
                                     <td>
                                         <asp:Label Text='<%#: Item.Creator.UserName %>' runat="server" Visible='<%# Item.CreatorScore > Item.ReceiverScore %>' />
                                         <asp:Label Text='<%#: Item.Receiver.UserName %>' runat="server" Visible='<%# Item.ReceiverScore > Item.CreatorScore %>' />
-
                                     </td>
                                 </tr>
                             </ItemTemplate>
-
                             <EmptyDataTemplate runat="server">
                                 <h5 class="content-empty text-center">No finished games available</h5>
                             </EmptyDataTemplate>

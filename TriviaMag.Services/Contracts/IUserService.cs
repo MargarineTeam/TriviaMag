@@ -9,6 +9,8 @@
 
         User GetById(int id);
 
-        Statistics getUserStatsById(int id);
+        IQueryable<Statistics> getUserStatsById(string id);
+
+        User GetByUsername(string username);
     }
 }

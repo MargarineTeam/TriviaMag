@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="Create Question" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateQuestion.aspx.cs" Inherits="TriviaMag.Web.CreateQuestion" %>
 
 <asp:Content ID="CreateQuestion" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+     <div class="jumbotron text-center" style="background-color: #7C4E5B;">
+
     <fieldset>
-        <legend>Create a new Question</legend>
+        <legend class="createQ">Create a new Question</legend>
         <div class="form-group row">
             <div class="col-md-1">
                 <asp:Label ID="categoryLabel" runat="server" AssociatedControlID="categoryDropdown" CssClass="control-label">Category:</asp:Label>
@@ -21,16 +24,17 @@
             <asp:Label ID="correctAnswerLabel" runat="server" AssociatedControlID="correctAnswerTextbox" ForeColor="Green" CssClass="control-label col-md-2">The correct answer:</asp:Label>
             <asp:TextBox ID="correctAnswerTextbox" runat="server" ForeColor="Green" CssClass="form-control col-md-3" placeholder="The Correct Answer"></asp:TextBox>
             <span class="col-md-1"></span>
-            <asp:Label ID="FirstWrongAnswerLabel" runat="server" AssociatedControlID="FirstWrongAnswerTextbox" ForeColor="Red" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
-            <asp:TextBox ID="FirstWrongAnswerTextbox" runat="server" ForeColor="Red" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
+            <asp:Label ID="FirstWrongAnswerLabel" runat="server" AssociatedControlID="FirstWrongAnswerTextbox" ForeColor="#8E1F1C" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
+            <asp:TextBox ID="FirstWrongAnswerTextbox" runat="server" ForeColor="#8E1F1C" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
         </div>
         <div class="form-group row">
-            <asp:Label ID="SecondWrongAnswerLabel" runat="server" AssociatedControlID="SecondWrongAnswerTextbox" ForeColor="Red" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
-            <asp:TextBox ID="SecondWrongAnswerTextbox" runat="server" ForeColor="Red" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
+            <asp:Label ID="SecondWrongAnswerLabel" runat="server" AssociatedControlID="SecondWrongAnswerTextbox" ForeColor="#8E1F1C" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
+            <asp:TextBox ID="SecondWrongAnswerTextbox" runat="server" ForeColor="#8E1F1C" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
             <span class="col-md-1"></span>
-            <asp:Label ID="ThirdWrongAnswerLabel" runat="server" AssociatedControlID="ThirdWrongAnswerTextbox" ForeColor="Red" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
-            <asp:TextBox ID="ThirdWrongAnswerTextbox" runat="server" ForeColor="Red" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
+            <asp:Label ID="ThirdWrongAnswerLabel" runat="server" AssociatedControlID="ThirdWrongAnswerTextbox" ForeColor="#8E1F1C" CssClass="control-label col-md-2">Wrong answer:</asp:Label>
+            <asp:TextBox ID="ThirdWrongAnswerTextbox" runat="server" ForeColor="#8E1F1C" CssClass="form-control col-md-3" placeholder="Wrong Answer"></asp:TextBox>
         </div>
         <asp:Button ID="submitQuestionBtn" runat="server" OnClick="SubmitQuestion" Text="Submit" CssClass="btn btn-info"/>
     </fieldset>
+         </div>
 </asp:Content>

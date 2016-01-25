@@ -10,6 +10,7 @@
             <p class="text-success"><%: SuccessMessage %></p>
         </asp:PlaceHolder>
     </div>
+ <div class="jumbotron text-center" style="background-color: #7B4253;">
 
     <div class="row">
         <div class="col-md-12">
@@ -74,6 +75,7 @@
                     </dd>
                 </dl>
             </div>
+        </div>
         </div>
     </div>
 

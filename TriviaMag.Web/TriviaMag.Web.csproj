@@ -228,17 +228,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="fonts\Bohemian typewriter.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="fonts\readme - licence information - do not remove!.txt" />
     <Content Include="Games\Create.aspx" />
     <Content Include="Games\ListGames.aspx" />
     <Content Include="Games\Play.aspx" />
     <Content Include="Games\Play.js" />
     <Content Include="Games\Play_Proxy.js" />
     <Content Include="images\art.jpg" />
+    <Content Include="images\backgr.jpg" />
+    <Content Include="images\backgr1.jpg" />
     <Content Include="images\entertainment.jpg" />
     <Content Include="images\history.jpg" />
+    <Content Include="images\nav-back.jpg" />
     <Content Include="images\science.jpg" />
-    <Content Include="images\sport.png" />
+    <Content Include="images\sport.jpg" />
     <Content Include="images\triviamagHome.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -275,6 +280,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Statistics\Statistics.aspx" />
     <Content Include="Unauthorized\Unauthorized.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -471,6 +477,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Statistics\Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Statistics\Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Unauthorized\Unauthorized.aspx.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

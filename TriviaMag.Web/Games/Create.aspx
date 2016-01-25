@@ -46,6 +46,7 @@
                 <asp:ButtonField HeaderText="Choice" ButtonType="Button" CommandName="Select" Text="Take" ControlStyle-CssClass="btn btn-info" />
             </Columns>
         </asp:GridView>
+
         <asp:Button ID="CreateGame" runat="server"  CssClass="btn btn-success" Text="Create Game" OnClick="CreateGame_Click"/>
     </fieldset>
 </asp:Content>

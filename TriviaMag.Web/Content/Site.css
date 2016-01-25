@@ -55,6 +55,11 @@ input[type="select"] {
 .gettingStarted {
     font-family: SuperFont;
     font-size: 40px;
+}
+.gettingStarted {
+    font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
+    font-size: 54px;
+
     font-style: normal;
     font-variant: normal;
     font-weight: 300;

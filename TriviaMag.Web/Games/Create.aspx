@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="Create" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="TriviaMag.Web.Games.Create" %>
 
 <asp:Content ID="Create" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
-    <fieldset class=".statsTExt">
+    <fieldset>
         <legend>Create Game</legend>
         <div class="panel panel-info">
             <div class="panel-heading">

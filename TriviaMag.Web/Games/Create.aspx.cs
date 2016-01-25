@@ -9,6 +9,7 @@ using TriviaMag.Services.Contracts;
 using TriviaMag.Common;
 using TriviaMag.Models;
 
+
 namespace TriviaMag.Web.Games
 {
     public partial class Create : Page
@@ -21,6 +22,9 @@ namespace TriviaMag.Web.Games
 
         [Inject]
         public IUserService UserService { get; set; }
+
+        [Inject]
+        public IQuestionService QuestionService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,6 +61,35 @@ namespace TriviaMag.Web.Games
         {
             var currentUser = HttpContext.Current.User.Identity.Name;
             return this.UserService.GetAll().Where(x => x.UserName != currentUser).OrderBy(x => x.UserName);
+        }
+
+        public void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
+        {
+            var row = int.Parse(e.CommandArgument.ToString());
+            var id = this.GridView1.DataKeys[row].Value.ToString();
+            var current = (Game)Session["game"];
+            current.ReceiverId = id;
+            Session["game"] = current;
+            var test = Session["game"];
+        }
+
+        public void CreateGame_Click(Object sender, EventArgs e)
+        {
+            var currentGame = (Game)Session["game"];
+            var questions = this.QuestionService.GetRandomQuestionsByCategory(currentGame.Category);
+            var game = new Game
+            {
+                CreatorId = currentGame.CreatorId,
+                ReceiverId = currentGame.ReceiverId,
+                CreatorScore = currentGame.CreatorScore,
+                ReceiverScore = currentGame.ReceiverScore,
+                IsFinished = currentGame.IsFinished,
+                Category = currentGame.Category
+            };
+
+            game.Questions = questions;
+            GameService.CreateGame(game);
+            Response.Redirect("~/Games/Play?id=" + game.Id);
         }
     }
 }

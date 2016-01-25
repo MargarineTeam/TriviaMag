@@ -31,7 +31,7 @@
         </div>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" SelectMethod="GetUsers">
             <Columns>
-                <asp:ButtonField DataTextField="Username" HeaderText="Username" ButtonType="Button" CommandName="Select" />
+                <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                 <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                 <asp:BoundField DataField="Score" HeaderText="Score" SortExpression="Score" />

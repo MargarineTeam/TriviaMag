@@ -7,7 +7,7 @@
         <h1 style="color: #F8969C;" class="homeMag">Mag</h1>
     </div>
 
-    <div class="row">
+    <%--<div class="row">--%>
         <div class="col-md-12 text-center">
             <h2 style="color:#55B747" class="gettingStarted">The coolest game online... if you are <span style="color: #F8969C;">SMART</span> enough!</h2>
         </div>

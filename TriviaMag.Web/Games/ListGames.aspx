@@ -61,7 +61,7 @@
                                                         <asp:Label Text='<%#: Item.ReceiverScore %>' runat="server" />
                                                     </td>
                                                       <td>
-                                                        <asp:Button class="btn btn-success" Text='Play' runat="server" />
+                                                        <asp:HyperLink  NavigateUrl="~/Games/Play" class="btn btn-success" Text='Play' runat="server" />
                                                     </td>
                                                 </tr>
                                             </ItemTemplate>

@@ -22,7 +22,7 @@
                                                       <asp:Literal Text="Games played" runat="server" />
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <asp:Literal Text="Percentage" runat="server" />
+                                                    <asp:Literal Text="Rate" runat="server" />
                                                 </div>
                                              </div>
                                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />

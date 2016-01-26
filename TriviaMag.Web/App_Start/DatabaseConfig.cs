@@ -67,7 +67,7 @@
                     UserName = "stefan"
                 };
                 userManager.Create(user2, "123456");
-                
+
                 db.SaveChanges();
 
                 // Questions
@@ -138,15 +138,15 @@
                     ReceiverScore = 0,
                     Questions = questions
                 });
-
                 db.Games.Add(new Game()
                 {
-                    Category = Categories.Sport,
-                    Creator = user2,
+                    Category = Categories.Art,
+                    Creator = user1,
                     IsFinished = true,
-                    Receiver = user1,
-                    CreatorScore = 3,
-                    ReceiverScore = 4
+                    Receiver = user2,
+                    CreatorScore = 5,
+                    ReceiverScore = 2,
+                    Questions = new List<Question>(questions)
                 });
                 db.SaveChanges();
             }

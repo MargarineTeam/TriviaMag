@@ -6,7 +6,6 @@
 
         <section>
             <div>
-                <a href="ListGames.aspx">ListGames.aspx</a>
                 <hgroup>
                     <h2><%: Page.Title %></h2>
                 </hgroup>

@@ -70,12 +70,16 @@ namespace TriviaMag.Web.Games
 
         public void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
-            var row = int.Parse(e.CommandArgument.ToString());
-            var id = this.GridView1.DataKeys[row].Value.ToString();
-            var current = (Game)Session["game"];
-            current.ReceiverId = id;
-            Session["game"] = current;
-            var test = Session["game"];
+            int row = 0;
+            if (int.TryParse(e.CommandArgument.ToString(), out row))
+            {
+                // var row = int.Parse(e.CommandArgument.ToString());
+                var id = this.GridView1.DataKeys[row].Value.ToString();
+                var current = (Game)Session["game"];
+                current.ReceiverId = id;
+                Session["game"] = current;
+                var test = Session["game"];
+            }
         }
 
         public void CreateGame_Click(Object sender, EventArgs e)

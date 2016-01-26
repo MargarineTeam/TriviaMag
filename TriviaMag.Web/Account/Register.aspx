@@ -11,11 +11,15 @@
     <div class="form-horizontal">
         <h4>Create a new account</h4>
         <hr />
-        <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">Username</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                    ErrorMessage="The username field can contains only letters, numbers, '.' or '_'."
+                    ValidationExpression="^([A-Za-z0-9._])$"
+                    ControlToValidate="Username" CssClass="text-danger"/>
+
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The username field is required." />
             </div>
@@ -65,7 +69,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FileUploadControl" CssClass="col-md-2 control-label">Picture</asp:Label>
             <div class="col-md-10">
-                <uc:FileUpload ID="FileUploadControl" runat="server"  />
+                <uc:FileUpload ID="FileUploadControl" runat="server" />
             </div>
         </div>
         <div class="form-group">

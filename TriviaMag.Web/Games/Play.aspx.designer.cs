@@ -13,22 +13,22 @@ namespace TriviaMag.Web.Games {
     public partial class Play {
         
         /// <summary>
-        /// QuestionUpdatePanel control.
+        /// PleaseWorks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel QuestionUpdatePanel;
+        protected global::System.Web.UI.UpdatePanel PleaseWorks;
         
         /// <summary>
-        /// QuestionLabel control.
+        /// playGameView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label QuestionLabel;
+        protected global::System.Web.UI.WebControls.FormView playGameView;
         
         /// <summary>
         /// RadioButtonList control.
@@ -38,5 +38,14 @@ namespace TriviaMag.Web.Games {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList;
+        
+        /// <summary>
+        /// SubmitAnswerButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SubmitAnswerButton;
     }
 }

@@ -10,11 +10,15 @@
     using Services.Contracts;
     using System.Web.Services;
     using System.Web.Script.Services;
+    using TriviaMag.Models;
+    using System.Collections;
+    using System.Web.UI.WebControls;
+
     public partial class Play : System.Web.UI.Page
     {
-        private int currentQuestion = 0;
         private int currentGameId = 0;
         private static int staticCurrentGameId = 0;
+        private Game game;
 
         [Inject]
         public IGameService games { get; set; }
@@ -28,68 +32,135 @@
             {
                 Response.Redirect("~/Unauthorized/Unauthorized.aspx");
             }
+
+            //this.currentGameId = int.Parse(Request.QueryString["id"]);
+            //this.game = this.games.GetById(currentGameId);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var id = Request.QueryString["id"];
+            if (id == null)
+            {
+                Response.Redirect("~/");
+            }
+
             this.currentGameId = int.Parse(Request.QueryString["id"]);
-            LoadFirstQuestion();
+            this.game = this.games.GetById(this.currentGameId);
+
+           // var current = HttpContext.Current.User.Identity.Name;
+            //var user = this.game.Creator.UserName;
+
+            if (this.game == null)
+            {
+                Response.Redirect("~/");
+            }
+
+            if (HttpContext.Current.User.Identity.Name == this.game.Creator.UserName && this.game.IsFinished)
+            {
+                Response.Redirect("~/Games/ListGames");
+            }
+
+            if (HttpContext.Current.User.Identity.Name == this.game.Receiver.UserName && this.game.IsFinished)
+            {
+                Response.Redirect("~/Games/ListGames");
+            }
+
+            if (HttpContext.Current.User.Identity.Name != this.game.Creator.UserName && HttpContext.Current.User.Identity.Name != this.game.Receiver.UserName)
+            {
+                Response.Redirect("~/");
+            }
+
+            if (!this.IsPostBack)
+            {
+                Session["score"] = 0;
+                Session["quetionIndex"] = 0;
+                this.RadioButtonList.DataSource = GetAnswersData(0);
+                this.RadioButtonList.DataBind();
+            }
         }
 
-        private void LoadFirstQuestion()
+        public Game GetGameData()
         {
-            this.QuestionLabel.Text = this.games.GetById(this.currentGameId).Questions.FirstOrDefault().Text;
-            currentQuestion++;
+            this.game = this.games.GetById(this.currentGameId);
+            return this.game;
         }
 
-        private string NextQuestion()
-        {
-            throw new NotImplementedException();
-        }
-
-        public object GetGameData()
-        {
-            return this.games.GetById(currentGameId);
-        }
-
-        public IQueryable<string> GetAnswersData()
+        public IList<string> GetAnswersData(int index)
         {
             var answers = new List<string>();
-            answers.Add(this.games.GetById(currentGameId).Questions.Skip(currentQuestion - 1).Take(1).FirstOrDefault().WrongAnswerOne);
-            answers.Add(this.games.GetById(currentGameId).Questions.Skip(currentQuestion - 1).Take(1).FirstOrDefault().WrongAnswerTwo);
-            answers.Add(this.games.GetById(currentGameId).Questions.Skip(currentQuestion - 1).Take(1).FirstOrDefault().WrongAnswerThree);
-            answers.Add(this.games.GetById(currentGameId).Questions.Skip(currentQuestion - 1).Take(1).FirstOrDefault().TrueAnswer);
+            var all = this.game.Questions.ToList();
+            var test = all[index];
 
-            return answers.AsQueryable();
+            answers.Add(test.WrongAnswerOne);
+            answers.Add(test.WrongAnswerTwo);
+            answers.Add(test.WrongAnswerThree);
+            answers.Add(test.TrueAnswer);
+
+            return answers;
+        }
+
+        public string GetQuestion()
+        {
+            var index = int.Parse(Session["quetionIndex"].ToString());
+            var questions = this.game.Questions.ToList();
+            var question = questions[index];
+            return question.Text;
         }
 
         protected void SubmitAnswerButton_Click(object sender, EventArgs e)
         {
             CheckIfCorrectAnswer();
-            currentQuestion++;
-            this.RadioButtonList.DataSource = GetAnswersData();
-            this.RadioButtonList.DataBind();
+            var currentQuestionIndex = int.Parse(Session["quetionIndex"].ToString()) + 1;
+            var allQuestions = this.game.Questions.ToList();
+
+            if (currentQuestionIndex < allQuestions.Count)
+            {
+                Session["quetionIndex"] = currentQuestionIndex;
+                var firstNameTextbox = playGameView.FindControl("QuestionLabel") as Label;
+                var currentQuestion = allQuestions[currentQuestionIndex];
+                firstNameTextbox.Text = currentQuestion.Text;
+                this.RadioButtonList.DataSource = GetAnswersData(currentQuestionIndex);
+                this.RadioButtonList.DataBind();
+                this.PleaseWorks.Update();
+            }
+            else
+            {
+                UpdatePlayerPoints();
+                Response.Redirect("~/");
+            }
         }
 
         private void CheckIfCorrectAnswer()
         {
-            var correctAnswer = this.games.GetById(currentGameId).Questions.Skip(currentQuestion - 1).Take(1).FirstOrDefault().TrueAnswer;
+            var correctAnswer = this.game.Questions.Skip(int.Parse(Session["quetionIndex"].ToString()))
+                .Take(1)
+                .FirstOrDefault()
+                .TrueAnswer;
+
             var userAnswer = this.RadioButtonList.SelectedValue;
             if (userAnswer == correctAnswer)
             {
-                UpdatePlayerPoints();
+                var score = int.Parse(Session["score"].ToString()) + 1;
+                Session["score"] = score;
             }
         }
 
         private void UpdatePlayerPoints()
         {
+            var score = int.Parse(Session["score"].ToString());
+
             if (this.games.GetById(currentGameId).Creator.UserName == HttpContext.Current.User.Identity.Name)
             {
-                this.games.GetById(currentGameId).CreatorScore++;
+                this.game.CreatorScore = score;
+                this.games.UpdateGame(this.game);
+
             }
             else
             {
-                this.games.GetById(currentGameId).ReceiverScore++;
+                this.game.ReceiverScore = score;
+                this.game.IsFinished = true;
+                this.games.UpdateGame(this.game);
             }
         }
 

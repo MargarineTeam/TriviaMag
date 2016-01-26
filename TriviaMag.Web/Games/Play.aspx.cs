@@ -47,10 +47,7 @@
 
             this.currentGameId = int.Parse(Request.QueryString["id"]);
             this.game = this.games.GetById(this.currentGameId);
-
-           // var current = HttpContext.Current.User.Identity.Name;
-            //var user = this.game.Creator.UserName;
-
+            
             if (this.game == null)
             {
                 Response.Redirect("~/");

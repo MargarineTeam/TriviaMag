@@ -14,5 +14,7 @@
         ICollection<Statistics> getUserStatsById(string id);
 
         User GetByUsername(string username);
+
+        void  UpdateUser(string id, string username, string firstname, string lastname);
     }
 }

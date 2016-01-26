@@ -1,8 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using System.Data.Entity;
-using TriviaMag.Data;
-using TriviaMag.Data.Migrations;
+using TriviaMag.Web.App_Start;
 
 [assembly: OwinStartupAttribute(typeof(TriviaMag.Web.Startup))]
 namespace TriviaMag.Web
@@ -11,8 +9,9 @@ namespace TriviaMag.Web
 
         public void Configuration(IAppBuilder app) {
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TriviaMagDbContext, Configuration>(true));
+            DatabaseConfig.Initialize();
             ConfigureAuth(app);
+
         }
     }
 }

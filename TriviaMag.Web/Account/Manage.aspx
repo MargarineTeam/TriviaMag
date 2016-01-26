@@ -22,7 +22,10 @@
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
                     </dd>
                     <hr />
-                    
+                    <dt>User settings:</dt>
+                    <dd>
+                        <asp:HyperLink NavigateUrl="/Account/EditUser" Text="Change" Visible="true" ID="EditUser" runat="server" />
+                    </dd>
 
                     <%--
                         Phone Numbers can used as a second factor of verification in a two-factor authentication system.

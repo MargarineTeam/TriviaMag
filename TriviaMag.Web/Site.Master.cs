@@ -73,6 +73,10 @@ namespace TriviaMag.Web
                 }
             }
         }
+        public string GetUsername()
+        {
+            return this.UserService.GetById(HttpContext.Current.User.Identity.GetUserId()).UserName;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -83,7 +87,7 @@ namespace TriviaMag.Web
                 var id = HttpContext.Current.User.Identity.GetUserId();
                 var user = this.UserService.GetById(id);
                 var currentUserImagePath = user.PicturePath;
-
+                
                 if(currentUserImagePath== null)
                 {
                     currentUserImagePath = "~/images/default.jpg";

@@ -3,10 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron text-center" style="background-color: #463851;">
-
         <section>
             <div>
-                <a href="ListGames.aspx">ListGames.aspx</a>
                 <hgroup>
                     <h2><%: Page.Title %></h2>
                 </hgroup>

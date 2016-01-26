@@ -36,6 +36,16 @@
             return this.users.All().Where(u => u.UserName == username).FirstOrDefault();
         }
 
+        public void UpdateUser(string id, string username, string firstname, string lastname)
+        {
+            var currentUsr = this.users.GetById(id);
+            currentUsr.UserName = username;
+            currentUsr.Firstname = firstname;
+            currentUsr.Lastname = lastname;
+            this.users.Update(currentUsr);
+            this.users.SaveChanges();
+        }
+
         public ICollection<Statistics> getUserStatsById(string id)
         {
             var currentUser = this.users.GetById(id);

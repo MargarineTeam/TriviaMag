@@ -32,9 +32,6 @@
             {
                 Response.Redirect("~/Unauthorized/Unauthorized.aspx");
             }
-
-            //this.currentGameId = int.Parse(Request.QueryString["id"]);
-            //this.game = this.games.GetById(currentGameId);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -47,7 +44,7 @@
 
             this.currentGameId = int.Parse(Request.QueryString["id"]);
             this.game = this.games.GetById(this.currentGameId);
-            
+
             if (this.game == null)
             {
                 Response.Redirect("~/");
@@ -150,6 +147,7 @@
             if (this.games.GetById(currentGameId).Creator.UserName == HttpContext.Current.User.Identity.Name)
             {
                 this.game.CreatorScore = score;
+                //this.game.Creator.Score++;
                 this.games.UpdateGame(this.game);
 
             }
@@ -157,6 +155,21 @@
             {
                 this.game.ReceiverScore = score;
                 this.game.IsFinished = true;
+
+                if (this.game.CreatorScore > this.game.ReceiverScore)
+                {
+                    this.game.Creator.Score++;
+                }
+                else if (this.game.CreatorScore < this.game.ReceiverScore)
+                {
+                    this.game.Receiver.Score++;
+                }
+                else
+                {
+                    this.game.Creator.Score++;
+                    this.game.Receiver.Score++;
+                }
+
                 this.games.UpdateGame(this.game);
             }
         }

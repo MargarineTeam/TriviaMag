@@ -3,14 +3,25 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <div class="text-center">
-        <img src="images/triviamagHome.png"/>
+        <img src="images/triviamagHome.png" />
         <h1 style="color: #4F3F50;" class="homeMag">Mag</h1>
     </div>
     <br />
     <div class="row">
         <div class="col-md-12 text-center">
-            <h2 style="color:#353654" class="gettingStarted">The coolest game online... if you are <span style="color: #F8969C;">SMART</span></h2>
-            <h1 style="color:#353654" class="gettingStarted"> enough!</h1>
+            <h2 style="color: #353654" class="gettingStarted">The coolest game online... if you are <span style="color: #F8969C;">SMART</span></h2>
+            <h1 style="color: #353654" class="gettingStarted">enough!</h1>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:LoginView ID="LoginView2" runat="server" ViewStateMode="Disabled">
+            <LoggedInTemplate>
+                <div class="text-center">
+                    <a href="Games/Create.aspx" class="btn btn-success">Play</a>
+                </div>
+            </LoggedInTemplate>
+        </asp:LoginView>
     </div>
 </asp:Content>

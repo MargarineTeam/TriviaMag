@@ -69,11 +69,9 @@
                 {
                     message = "You must select category!";
                 }
-
-                //TODO: Add some error message!!!
+                
                 this.DivLabelErrorMessage.Visible = true;
                 this.LabelErrorMessage.Text = message;
-                Response.Redirect("~/CreateQuestion");
             }
 
         }

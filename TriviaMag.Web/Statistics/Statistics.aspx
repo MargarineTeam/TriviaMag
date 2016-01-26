@@ -1,5 +1,7 @@
 ﻿<%@ page title="" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Statistics.aspx.cs" inherits="TriviaMag.Web.Statistics.Statistics" %>
 
+<%@ OutputCache CacheProfile="ShortLived" %>
+
 <asp:content id="Content1" contentplaceholderid="MainContent" runat="server">
 
  <div class="jumbotron text-center" style="background-color: #7B4253;">

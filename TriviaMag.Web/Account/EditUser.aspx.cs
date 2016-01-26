@@ -20,9 +20,9 @@ namespace TriviaMag.Web.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             var currentUser = this.UserService.GetByUsername(HttpContext.Current.User.Identity.Name);
-            this.username.Text = currentUser.UserName;
-            this.firstName.Text = currentUser.Firstname;
-            this.lastName.Text = currentUser.Lastname;
+            //this.username.Text = currentUser.UserName;
+            //this.firstName.Text = currentUser.Firstname;
+            //this.lastName.Text = currentUser.Lastname;
 
             if (!this.User.Identity.IsAuthenticated)
             {

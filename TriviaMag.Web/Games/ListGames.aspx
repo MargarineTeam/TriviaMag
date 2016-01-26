@@ -3,7 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron text-center" style="background-color: #463851;">
-
         <section>
             <div>
                 <hgroup>

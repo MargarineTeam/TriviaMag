@@ -75,7 +75,24 @@
                         <h5 class="content-empty">No items available</h5>
                     </EmptyDataTemplate>
                 </asp:ListView>
+
             </div>
         </div>
+          <div class="bs-component text-center">
+                <asp:DataPager ID="DataPagerAll" PagedControlID="AllQuestions" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
+                    <Fields>
+                        <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
+                            ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
+                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+
+                        <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
+                            NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
+
+                        <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
+                            ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
+                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                    </Fields>
+                </asp:DataPager>
+            </div>
     </div>
 </asp:Content>

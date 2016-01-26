@@ -18,5 +18,7 @@
         void UpdateQuestion(Question question);
 
         void CreateQuestion(Question newQuestion);
+
+        ICollection<Question> GetAllToBeApproved();
     }
 }

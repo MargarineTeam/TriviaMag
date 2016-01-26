@@ -25,7 +25,7 @@
             var manager = Context.GetOwinContext().GetUserManager<UserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             // var test = FileUploadControl.FileName;
-            string filePathAndName = string.Empty;
+            string filePathAndName = null;
 
             try
             {
@@ -38,15 +38,7 @@
 
                 return;
             }
-
-            //if (string.IsNullOrEmpty(filePathAndName))
-            //{
-            //    user.ImageID = this.data.Images.Find(1).ID;
-            //}
-            //else
-            //{
-            //    user.Image = new Image { Path = filePathAndName };
-            //}
+            
             var user = new User()
             {
                 UserName = Username.Text,

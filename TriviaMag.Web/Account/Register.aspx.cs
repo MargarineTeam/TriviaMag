@@ -19,17 +19,17 @@
                 Response.Redirect("~/");
             }
         }
-        
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<UserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             // var test = FileUploadControl.FileName;
-            string filePathAndName = null;
+            string filePathAndName = string.Empty;
 
             try
             {
-                filePathAndName = FileUploadControl.Upload();
+                filePathAndName = FileUploadControl.Upload() == "" ? null : FileUploadControl.Upload();
             }
             catch (InvalidOperationException ex)
             {
@@ -38,7 +38,7 @@
 
                 return;
             }
-            
+
             var user = new User()
             {
                 UserName = Username.Text,

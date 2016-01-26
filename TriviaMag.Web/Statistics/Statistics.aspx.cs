@@ -29,7 +29,7 @@
         {
             var currentUser = this.UserService.GetByUsername(HttpContext.Current.User.Identity.Name);
             var stats = this.UserService.getUserStatsById(currentUser.Id);
-            return stats.ToList();
+            return stats;
         }
     }
 }

@@ -36,12 +36,12 @@
             return this.users.All().Where(u => u.UserName == username).FirstOrDefault();
         }
 
-        public IQueryable<Statistics> getUserStatsById(string id)
+        public ICollection<Statistics> getUserStatsById(string id)
         {
             var currentUser = this.users.GetById(id);
             var userGames = this.games.All().Where(x => x.CreatorId == currentUser.Id || x.ReceiverId == currentUser.Id).ToList();
             var gamesGrouped = userGames.GroupBy(g => g.Category);
-            var result = new List<Statistics>();
+            var result = new SortedSet<Statistics>();
 
             foreach (var group in gamesGrouped)
             {
@@ -61,9 +61,7 @@
                 currentStat.Percentage = percentage;
                 result.Add(currentStat);
             }
-            result.OrderBy(x => x.Percentage);
-
-            return result.AsQueryable();
+            return result;
         }
     }
 }

@@ -3,13 +3,15 @@
     using System.Linq;
     using Models;
     using System;
+    using System.Collections.Generic;
+
     public interface IUserService
     {
         IQueryable<User> GetAll();
 
         User GetById(String id);
 
-        IQueryable<Statistics> getUserStatsById(string id);
+        ICollection<Statistics> getUserStatsById(string id);
 
         User GetByUsername(string username);
     }

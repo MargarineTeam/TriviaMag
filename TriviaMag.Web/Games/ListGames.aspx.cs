@@ -19,9 +19,9 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            if (!this.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/Unauthorized/Unauthorized.aspx");
+                this.Response.Redirect("~/Account/Login");
             }
         }
         public ICollection<Game> GridViewWaitingGames()

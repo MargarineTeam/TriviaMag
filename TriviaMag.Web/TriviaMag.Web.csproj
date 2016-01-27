@@ -234,7 +234,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="fonts\readme - licence information - do not remove!.txt" />
     <Content Include="Games\Create.aspx" />
-    <Content Include="Games\Details.aspx" />
     <Content Include="Games\ListGames.aspx" />
     <Content Include="Games\Play.aspx" />
     <Content Include="images\art.jpg" />
@@ -459,13 +458,6 @@
     </Compile>
     <Compile Include="Games\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Games\Details.aspx.cs">
-      <DependentUpon>Details.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Games\Details.aspx.designer.cs">
-      <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games\ListGames.aspx.cs">
       <DependentUpon>ListGames.aspx</DependentUpon>

@@ -51,6 +51,8 @@ namespace TriviaMag.Web.Games
 
                 Session["game"] = game;
             }
+            this.UsersPanel.Visible = false;
+            this.CreateGame.Visible = false;
         }
 
         public void ChooseCategory(Object sender, EventArgs e)
@@ -60,6 +62,9 @@ namespace TriviaMag.Web.Games
             var current = (Game)Session["game"];
             current.Category = category;
             Session["game"] = current;
+            this.CategoriesPanel.Visible = false;
+            this.UsersPanel.Visible = true;
+
         }
 
         public IQueryable<User> GetUsers()
@@ -72,17 +77,15 @@ namespace TriviaMag.Web.Games
             return users;
         }
 
-        public void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
+        public void GridView1_RowCommand(Object sender, CommandEventArgs e)
         {
-            int row = 0;
-            if (int.TryParse(e.CommandArgument.ToString(), out row))
-            {
-                var id = this.GridView1.DataKeys[row].Value.ToString();
-                var current = (Game)Session["game"];
-                current.ReceiverId = id;
-                Session["game"] = current;
-                var test = Session["game"];
-            }
+
+            var id = e.CommandArgument.ToString();
+            var current = (Game)Session["game"];
+            current.ReceiverId = id;
+            Session["game"] = current;
+            var test = Session["game"];
+            this.CreateGame.Visible = true;
         }
 
         public void CreateGame_Click(Object sender, EventArgs e)

@@ -56,10 +56,10 @@ input[type="select"] {
     font-family: SuperFont;
     font-size: 40px;
 }
+
 .gettingStarted {
     font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Red', 'sans serif';
     font-size: 54px;
-
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
@@ -86,14 +86,37 @@ input[type="select"] {
 
 body {
     background-image: url("../images/backgr1.jpg");
-     position:relative;
+    position: relative;
 }
-boby::after{
 
+boby::after {
 }
 
 .centered-profile-image {
     width: 60px;
     height: 60px;
     margin-top: 3%;
+}
+
+.playGamebtn {
+    font-family: SuperFont;
+    font-weight: 900 !important;
+    width: 400px;
+    color: #D7DE20 !important;
+    background-color: #9CD134 !important;
+}
+
+.categoryImages {
+    width: 140px !important;
+    height: 120px !important;
+}
+
+.StartGameBtn{
+    width: 300px;
+    height: 300px;
+    border-radius: 180px !important;
+    box-shadow: -10px 10px 15px #480707;
+    font-family: SuperFont;
+    font-weight: bold !important;
+    font-size: 35px !important;
 }

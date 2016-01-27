@@ -31,6 +31,15 @@ namespace TriviaMag.Web.Games {
         protected global::System.Web.UI.WebControls.Label LabelErrorMessage;
         
         /// <summary>
+        /// CategoriesPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CategoriesPanel;
+        
+        /// <summary>
         /// ArtCategory control.
         /// </summary>
         /// <remarks>
@@ -76,13 +85,31 @@ namespace TriviaMag.Web.Games {
         protected global::System.Web.UI.WebControls.ImageButton EntertainmentCategory;
         
         /// <summary>
-        /// GridView1 control.
+        /// UsersPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Panel UsersPanel;
+        
+        /// <summary>
+        /// AllUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView AllUsers;
+        
+        /// <summary>
+        /// DataPagerAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager DataPagerAll;
         
         /// <summary>
         /// CreateGame control.

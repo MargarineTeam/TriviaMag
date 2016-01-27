@@ -120,3 +120,20 @@ boby::after {
     font-weight: bold !important;
     font-size: 35px !important;
 }
+.CenerContainer{
+    margin: 0 auto !important;
+}
+.QuestionText{
+    width: 300px;
+    text-align: center;
+    height: 100px;
+    background-color: #D45B2E !important;
+    border-radius: 20px;
+    color: aliceblue;
+}
+.minusPaddingR{
+    padding-right: 0 !important;
+}
+.minusPaddingL{
+    padding-left: 0 !important;
+}

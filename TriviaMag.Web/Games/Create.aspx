@@ -66,9 +66,9 @@
                                     <tr>
                                         <th class="text-center">
                                             <asp:LinkButton Text="Username" runat="server"
-                                                ID="SortByModel"
+                                                ID="SortByUsername"
                                                 CommandName="Sort"
-                                                CommandArgument="Description" />
+                                                CommandArgument="Username" />
                                         </th>
                                         <th class="text-center">
                                             <asp:Literal Text="First name" runat="server" />

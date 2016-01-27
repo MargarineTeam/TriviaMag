@@ -35,6 +35,10 @@
 
         public int ReceiverScore { get; set; }
 
+        public decimal CreatorTime { get; set; }
+
+        public decimal ReceiverTime { get; set; }
+
         public virtual ICollection<Question> Questions
         {
             get

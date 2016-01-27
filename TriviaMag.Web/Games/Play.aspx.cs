@@ -74,8 +74,11 @@
                 Session["score"] = 0;
                 Session["quetionIndex"] = 0;
                 Session["questions"] = this.game.Questions.OrderBy(x => Guid.NewGuid()).ToList();
-                this.RadioButtonList.DataSource = GetAnswersData(0);
-                this.RadioButtonList.DataBind();
+                var data = this.GetAnswersData(0);
+                this.Btn1.Text = data[0];
+                this.Btn2.Text = data[1];
+                this.Btn3.Text = data[2];
+                this.Btn4.Text = data[3];
             }
         }
 
@@ -109,7 +112,8 @@
 
         protected void SubmitAnswerButton_Click(object sender, EventArgs e)
         {
-            CheckIfCorrectAnswer();
+            var text = ((Button)sender).Text;
+            CheckIfCorrectAnswer(text);
             var currentQuestionIndex = int.Parse(Session["quetionIndex"].ToString()) + 1;
             var allQuestions = (List<Question>)Session["questions"];
 
@@ -119,8 +123,12 @@
                 var firstNameTextbox = playGameView.FindControl("QuestionLabel") as Label;
                 var currentQuestion = allQuestions[currentQuestionIndex];
                 firstNameTextbox.Text = currentQuestion.Text;
-                this.RadioButtonList.DataSource = GetAnswersData(currentQuestionIndex);
-                this.RadioButtonList.DataBind();
+                var data = this.GetAnswersData(currentQuestionIndex);
+                this.Btn1.Text = data[0];
+                this.Btn2.Text = data[1];
+                this.Btn3.Text = data[2];
+                this.Btn4.Text = data[3];
+
                 this.PleaseWorks.Update();
             }
             else
@@ -133,7 +141,7 @@
             }
         }
 
-        private void CheckIfCorrectAnswer()
+        private void CheckIfCorrectAnswer(string text)
         {
             var index = int.Parse(Session["quetionIndex"].ToString());
             var questions = (List<Question>)(Session["questions"]);
@@ -142,7 +150,7 @@
                                          .FirstOrDefault()
                                          .TrueAnswer;
 
-            var userAnswer = this.RadioButtonList.SelectedValue;
+            var userAnswer = text;
             if (userAnswer == correctAnswer)
             {
                 var score = int.Parse(Session["score"].ToString()) + 1;

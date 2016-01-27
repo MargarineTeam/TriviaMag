@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Game
     {
         private ICollection<Question> questions;
@@ -14,6 +16,7 @@
 
         public int Id { get; set; }
 
+        [MaxLength(20)]
         public string Category { get; set; }
 
         public bool IsFinished { get; set; }

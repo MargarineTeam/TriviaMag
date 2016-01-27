@@ -6,7 +6,7 @@
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-
+    using System.ComponentModel.DataAnnotations;
     public class User : IdentityUser
     {
         private ICollection<Game> games;
@@ -16,10 +16,13 @@
             this.games = new HashSet<Game>();
         }
 
+        [MaxLength(500)]
         public string PicturePath { get; set; }
 
+        [MaxLength(50)]
         public string Firstname { get; set; }
 
+        [MaxLength(50)]
         public string Lastname { get; set; }
 
         public string Role { get; set; }

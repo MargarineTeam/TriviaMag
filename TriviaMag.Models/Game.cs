@@ -35,9 +35,9 @@
 
         public int ReceiverScore { get; set; }
 
-        public decimal CreatorTime { get; set; }
+        public double CreatorTime { get; set; }
 
-        public decimal ReceiverTime { get; set; }
+        public double ReceiverTime { get; set; }
 
         public virtual ICollection<Question> Questions
         {

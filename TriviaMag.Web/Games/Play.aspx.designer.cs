@@ -13,6 +13,33 @@ namespace TriviaMag.Web.Games {
     public partial class Play {
         
         /// <summary>
+        /// UpdatePanelTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelTimer;
+        
+        /// <summary>
+        /// gameTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer gameTimer;
+        
+        /// <summary>
+        /// TimerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TimerLabel;
+        
+        /// <summary>
         /// PleaseWorks control.
         /// </summary>
         /// <remarks>

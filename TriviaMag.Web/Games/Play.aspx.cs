@@ -16,8 +16,9 @@
     public partial class Play : System.Web.UI.Page
     {
         private int currentGameId = 0;
-        private static int staticCurrentGameId = 0;
         private Game game;
+        private static int displayCounter = 5;
+        private static double totalCounter = 0;
 
         [Inject]
         public IGameService games { get; set; }
@@ -40,7 +41,7 @@
             {
                 Response.Redirect("~/");
             }
-            
+
             this.currentGameId = int.Parse(Request.QueryString["id"]);
             this.game = this.games.GetById(this.currentGameId);
 
@@ -98,8 +99,8 @@
             answers.Add(test.WrongAnswerTwo);
             answers.Add(test.WrongAnswerThree);
             answers.Add(test.TrueAnswer);
-            
-            return answers.OrderBy(x=> Guid.NewGuid()).ToList();
+
+            return answers.OrderBy(x => Guid.NewGuid()).ToList();
         }
 
         public string GetQuestion()
@@ -113,6 +114,11 @@
         protected void SubmitAnswerButton_Click(object sender, EventArgs e)
         {
             var text = ((Button)sender).Text;
+            SubmitButton(text);
+        }
+
+        private void SubmitButton(string text)
+        {
             CheckIfCorrectAnswer(text);
             var currentQuestionIndex = int.Parse(Session["quetionIndex"].ToString()) + 1;
             var allQuestions = (List<Question>)Session["questions"];
@@ -129,6 +135,8 @@
                 this.Btn3.Text = data[2];
                 this.Btn4.Text = data[3];
 
+                this.TimerLabel.Text = "5";
+                displayCounter = 5;
                 this.PleaseWorks.Update();
             }
             else
@@ -137,7 +145,11 @@
                 Session["score"] = null;
                 Session["quetionIndex"] = null;
                 Session["questions"] = null;
-               Response.Redirect("~/Games/Details?id=" + game.Id);
+
+                totalCounter = 0;
+                displayCounter = 5;
+
+                Response.Redirect("~/Games/Details?id=" + game.Id);
             }
         }
 
@@ -165,8 +177,7 @@
             if (this.games.GetById(currentGameId).Creator.UserName == HttpContext.Current.User.Identity.Name)
             {
                 this.game.CreatorScore = score;
-                this.games.UpdateGame(this.game);
-
+                this.game.CreatorTime = totalCounter / 10.0;
             }
             else
             {
@@ -187,15 +198,26 @@
                     this.game.Receiver.Score++;
                 }
 
-                this.games.UpdateGame(this.game);
+                this.game.ReceiverTime = totalCounter / 10.0;
             }
+
+            this.games.UpdateGame(this.game);
         }
 
-        [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-        public static object GetGameServiceHttpGet(int category)
+        protected void gameTimer_Tick(object sender, EventArgs e)
         {
-            return staticGames.GetById(staticCurrentGameId);
+            totalCounter += 1;
+            if (totalCounter % 10 == 0)
+            {
+                displayCounter--;
+                this.TimerLabel.Text = displayCounter.ToString();
+            }
+
+            if (displayCounter == 0)
+            {
+                SubmitButton(string.Empty);
+                return;
+            }
         }
     }
 }

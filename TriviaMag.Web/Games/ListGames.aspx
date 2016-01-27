@@ -37,6 +37,9 @@
                                             <asp:Literal Text="Deffender Points" runat="server" />
                                         </th>
                                         <th class="text-center">
+                                            <asp:Literal Text="Details" runat="server" />
+                                        </th>
+                                        <th class="text-center">
                                             <asp:Literal Text="Play :}" runat="server" />
                                         </th>
                                     </tr>
@@ -59,6 +62,9 @@
                                     </td>
                                     <td>
                                         <asp:Label Text='<%#: Item.ReceiverScore %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl='<%# string.Format("~/Games/Details?id={0}", Item.Id)%>' class="btn btn-info" Text='Details' />
                                     </td>
                                     <td>
                                         <asp:HyperLink runat="server" ID="PlayButton" NavigateUrl='<%# string.Format("~/Games/Play?id={0}", Item.Id)%>' class="btn btn-success" Text='Play' />
@@ -100,6 +106,9 @@
                                         <th class="text-center">
                                             <asp:Literal Text="Deffender Points" runat="server" />
                                         </th>
+                                        <th class="text-center">
+                                            <asp:Literal Text="Details" runat="server" />
+                                        </th>
                                     </tr>
                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />
                                 </table>
@@ -120,6 +129,9 @@
                                     </td>
                                     <td>
                                         <asp:Label Text='<%#: Item.ReceiverScore %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl='<%# string.Format("~/Games/Details?id={0}", Item.Id)%>' class="btn btn-info" Text='Details' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -160,6 +172,9 @@
                                         <th class="text-center">
                                             <asp:Literal Text="Winner" runat="server" />
                                         </th>
+                                        <th class="text-center">
+                                            <asp:Literal Text="Details" runat="server" />
+                                        </th>
                                     </tr>
                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />
                                 </table>
@@ -185,6 +200,9 @@
                                     <td>
                                         <asp:Label Text='<%#: Item.Creator.UserName %>' runat="server" Visible='<%# Item.CreatorScore > Item.ReceiverScore %>' />
                                         <asp:Label Text='<%#: Item.Receiver.UserName %>' runat="server" Visible='<%# Item.ReceiverScore > Item.CreatorScore %>' />
+                                    </td>
+                                    <td>
+                                        <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl='<%# string.Format("~/Games/Details?id={0}", Item.Id)%>' class="btn btn-info" Text='Details' />
                                     </td>
                                 </tr>
                             </ItemTemplate>

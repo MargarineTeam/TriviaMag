@@ -13,15 +13,6 @@ namespace TriviaMag.Web.Games {
     public partial class Details {
         
         /// <summary>
-        /// DetailsPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel DetailsPanel;
-        
-        /// <summary>
         /// GameDetailsView control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace TriviaMag.Web.Games {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView GameDetailsView;
+        
+        /// <summary>
+        /// StatusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StatusLabel;
     }
 }

@@ -1,23 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="TriviaMag.Web.Games.Details" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <asp:UpdatePanel ID="DetailsPanel" runat="server" UpdateMode="Conditional">
-        <ContentTemplate>
-            <asp:FormView ID="GameDetailsView" runat="server" SelectMethod="GetGameData" ItemType="TriviaMag.Models.Game">
-                <ItemTemplate>
-                    <div>
-                        <h3>
-                            <strong><%#: Item.Creator.UserName %></strong> vs <strong><%#: Item.Receiver.UserName %></strong>
-                        </h3>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>
-                            <strong><%#: Item.CreatorScore %></strong> : <strong><%#: Item.ReceiverScore %></strong>
-                        </h3>
-                    </div>
-                </ItemTemplate>
-            </asp:FormView>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div>
+                <asp:FormView ID="GameDetailsView" runat="server" SelectMethod="GetGameData" ItemType="TriviaMag.Models.Game">
+                    <ItemTemplate>
+                        <div class="text-center">
+                            <h1>
+                                <%#: Item.Creator.UserName %> <span style="font-style: italic">vs</span> <%#: Item.Receiver.UserName %>
+                            </h1>
+                        </div>
+                        <div class="text-center">
+                            <h3>
+                                <strong>Final Score: <%#: Item.CreatorScore %></strong> - <strong><%#: Item.ReceiverScore %></strong>
+                            </h3>
+                        </div>
+                        <div class="text-center">
+                            <h3>
+                                <strong>Category: <%#: Item.Category %></strong>
+                            </h3>
+                        </div>
+                    </ItemTemplate>
+                </asp:FormView>
+                <div class="text-center">
+                    <h3>Status:
+                        <asp:Label runat="server" ID="StatusLabel"></asp:Label>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

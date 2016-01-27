@@ -12,12 +12,32 @@ namespace TriviaMag.Web.Games
 {
     public partial class Details : System.Web.UI.Page
     {
+        private Game game;
+
         [Inject]
         public IGameService games { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.game = GetGameData();
+            InitializeGameStatus();
+        }
 
+        private void InitializeGameStatus()
+        {
+            if (this.game.IsFinished)
+            {
+                this.StatusLabel.Text = "Finished";
+                return;
+            }
+
+            if (this.game.Receiver.UserName == HttpContext.Current.User.Identity.Name)
+            {
+                this.StatusLabel.Text = "Your turn";
+                return;
+            }
+
+            this.StatusLabel.Text = "Opponent's turn";
         }
 
         public Game GetGameData()

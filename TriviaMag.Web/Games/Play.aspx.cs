@@ -95,8 +95,8 @@
             answers.Add(test.WrongAnswerTwo);
             answers.Add(test.WrongAnswerThree);
             answers.Add(test.TrueAnswer);
-
-            return answers;
+            
+            return answers.OrderBy(x=> Guid.NewGuid()).ToList();
         }
 
         public string GetQuestion()

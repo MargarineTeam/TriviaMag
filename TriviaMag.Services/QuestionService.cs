@@ -25,6 +25,15 @@
             this.questions.SaveChanges();
         }
 
+        public ICollection<Question> GetAllToBeApproved()
+        {
+            var res = this.questions.All()
+                .Where(q => q.IsApproved == false)
+                .ToList();
+
+            return res;
+        }
+
         public IQueryable<Question> GetAll()
         {
             return this.questions.All();

@@ -80,15 +80,21 @@ namespace TriviaMag.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var currentUserId = Request.QueryString["Id"];
+            this.adminPanel.Visible = false;
 
+            var currentUserId = Request.QueryString["Id"];
+          
             if (Context.User.Identity.IsAuthenticated)
             {
                 var id = HttpContext.Current.User.Identity.GetUserId();
                 var user = this.UserService.GetById(id);
                 var currentUserImagePath = user.PicturePath;
-                
-                if(currentUserImagePath== null)
+                if (user.Role == "Admin")
+                {
+                    this.adminPanel.Visible = true;
+
+                }
+                if (currentUserImagePath== null)
                 {
                     currentUserImagePath = "~/images/default.jpg";
                 }

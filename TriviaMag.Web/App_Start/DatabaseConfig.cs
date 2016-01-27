@@ -31,7 +31,7 @@
                     Firstname = "Admin",
                     Lastname = "Admin",
                     Email = "admin@gmail.com",
-                    Role = "Private",
+                    Role = "Admin",
                     UserName = "admin"
                 };
                 userManager.Create(admin, "123456");

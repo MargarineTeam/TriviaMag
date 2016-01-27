@@ -86,7 +86,7 @@ namespace TriviaMag.Web.Games
             var currentGame = (Game)Session["game"];
             var questions = this.QuestionService.GetRandomQuestionsByCategory(currentGame.Category);
 
-            if(currentGame.ReceiverId == null && currentGame.CreatorId == null)
+            if(currentGame.ReceiverId == null && currentGame.Category == null)
             {
                 this.DivLabelErrorMessage.Visible = true;
                 this.LabelErrorMessage.Text = "Second player and category are required!";

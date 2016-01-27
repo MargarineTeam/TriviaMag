@@ -14,6 +14,7 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -79,7 +80,7 @@
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>           
+            </asp:ContentPlaceHolder>
             <hr />
             <footer class="text-center">
                 <p>&copy; <%: DateTime.Now.Year %> - Margarine&trade;</p>

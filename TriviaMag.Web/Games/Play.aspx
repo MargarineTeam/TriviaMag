@@ -15,12 +15,11 @@
                 </ItemTemplate>
             </asp:FormView>
             <asp:RadioButtonList ID="RadioButtonList" runat="server" AutoPostBack="true">
-
             </asp:RadioButtonList>
+            <asp:Button runat="server" ID="SubmitAnswerButton" Text="Submit Answer" OnClick="SubmitAnswerButton_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
 
-    <asp:Button runat="server" ID="SubmitAnswerButton" Text="Submit Answer" OnClick="SubmitAnswerButton_Click" />   
 </asp:Content>
 
 

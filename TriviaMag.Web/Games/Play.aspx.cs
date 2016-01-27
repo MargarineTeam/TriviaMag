@@ -4,14 +4,13 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-
-    using Ninject;
-
     using Services.Contracts;
     using System.Web.Services;
     using System.Web.Script.Services;
+
+    using Ninject;
+
     using TriviaMag.Models;
-    using System.Collections;
     using System.Web.UI.WebControls;
 
     public partial class Play : System.Web.UI.Page
@@ -42,7 +41,7 @@
                 Response.Redirect("~/");
             }
 
-           
+
             this.currentGameId = int.Parse(Request.QueryString["id"]);
             this.game = this.games.GetById(this.currentGameId);
 
@@ -53,16 +52,14 @@
 
             if (this.game.Receiver == null)
             {
-                //TODO:  message and redirect to create game
                 Response.Redirect("~/Games/Create");
             }
-
 
             if (HttpContext.Current.User.Identity.Name == this.game.Creator.UserName && this.game.IsFinished)
             {
                 Response.Redirect("~/Games/ListGames");
             }
-            
+
             if (HttpContext.Current.User.Identity.Name == this.game.Receiver.UserName && this.game.IsFinished)
             {
                 Response.Redirect("~/Games/ListGames");
@@ -130,6 +127,9 @@
             else
             {
                 UpdatePlayerPoints();
+                Session["score"] = null;
+                Session["quetionIndex"] = null;
+                Session["questions"] = null;
                 Response.Redirect("~/");
             }
         }

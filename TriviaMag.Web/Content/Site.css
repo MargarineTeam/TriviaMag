@@ -137,3 +137,7 @@ boby::after {
 .minusPaddingL{
     padding-left: 0 !important;
 }
+.timer{
+    font-size: 2em !important;
+    text-align:center;
+}

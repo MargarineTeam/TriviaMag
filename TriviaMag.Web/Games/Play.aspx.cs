@@ -17,7 +17,7 @@
     {
         private int currentGameId = 0;
         private Game game;
-        private static int displayCounter = 5;
+        private static double displayCounter = 10;
         private static double totalCounter = 0;
 
         [Inject]
@@ -72,6 +72,8 @@
 
             if (!this.IsPostBack)
             {
+                this.TimerLabel.Text = "10";
+                displayCounter = 10;
                 Session["score"] = 0;
                 Session["quetionIndex"] = 0;
                 Session["questions"] = this.game.Questions.OrderBy(x => Guid.NewGuid()).ToList();
@@ -119,6 +121,7 @@
 
         private void SubmitButton(string text)
         {
+            this.TimerLabel.ForeColor = System.Drawing.Color.Black;
             CheckIfCorrectAnswer(text);
             var currentQuestionIndex = int.Parse(Session["quetionIndex"].ToString()) + 1;
             var allQuestions = (List<Question>)Session["questions"];
@@ -135,8 +138,8 @@
                 this.Btn3.Text = data[2];
                 this.Btn4.Text = data[3];
 
-                this.TimerLabel.Text = "5";
-                displayCounter = 5;
+                this.TimerLabel.Text = "10";
+                displayCounter = 10;
                 this.PleaseWorks.Update();
             }
             else
@@ -147,7 +150,7 @@
                 Session["questions"] = null;
 
                 totalCounter = 0;
-                displayCounter = 5;
+                displayCounter = 10;
 
                 Response.Redirect("~/Games/Details?id=" + game.Id);
             }
@@ -207,13 +210,20 @@
         protected void gameTimer_Tick(object sender, EventArgs e)
         {
             totalCounter += 1;
+
             if (totalCounter % 10 == 0)
             {
-                displayCounter--;
-                this.TimerLabel.Text = displayCounter.ToString();
+                if (displayCounter <= 4)
+                {
+                    this.TimerLabel.ForeColor = System.Drawing.Color.Red;
+                }
+
             }
 
-            if (displayCounter == 0)
+            displayCounter -= 0.1;
+            this.TimerLabel.Text = string.Format("{0:F1}'", displayCounter);
+
+            if (displayCounter <= 0)
             {
                 SubmitButton(string.Empty);
                 return;

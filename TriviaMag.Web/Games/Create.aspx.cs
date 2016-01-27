@@ -50,9 +50,9 @@ namespace TriviaMag.Web.Games
                 };
 
                 Session["game"] = game;
+                this.UsersPanel.Visible = false;
+                this.CreateGame.Visible = false;
             }
-            this.UsersPanel.Visible = false;
-            this.CreateGame.Visible = false;
         }
 
         public void ChooseCategory(Object sender, EventArgs e)
@@ -64,7 +64,6 @@ namespace TriviaMag.Web.Games
             Session["game"] = current;
             this.CategoriesPanel.Visible = false;
             this.UsersPanel.Visible = true;
-
         }
 
         public IQueryable<User> GetUsers()
@@ -85,6 +84,7 @@ namespace TriviaMag.Web.Games
             current.ReceiverId = id;
             Session["game"] = current;
             var test = Session["game"];
+            this.UsersPanel.Visible = false;
             this.CreateGame.Visible = true;
         }
 

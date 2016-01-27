@@ -71,13 +71,22 @@
                                                 CommandArgument="Username" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="First name" runat="server" />
+                                              <asp:LinkButton Text="FirstName" runat="server"
+                                                ID="FirstName"
+                                                CommandName="Sort"
+                                                CommandArgument="FirstName" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="Last name" runat="server" />
+                                             <asp:LinkButton Text="LastName" runat="server"
+                                                ID="LastName"
+                                                CommandName="Sort"
+                                                CommandArgument="LastName" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="Score" runat="server" />
+                                            <asp:LinkButton Text="Score" runat="server"
+                                                ID="Score"
+                                                CommandName="Sort"
+                                                CommandArgument="Score" />
                                         </th>
                                         <th class="text-center"></th>
                                     </tr>

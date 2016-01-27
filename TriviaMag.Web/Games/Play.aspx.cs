@@ -40,8 +40,7 @@
             {
                 Response.Redirect("~/");
             }
-
-
+            
             this.currentGameId = int.Parse(Request.QueryString["id"]);
             this.game = this.games.GetById(this.currentGameId);
 
@@ -130,16 +129,18 @@
                 Session["score"] = null;
                 Session["quetionIndex"] = null;
                 Session["questions"] = null;
-                Response.Redirect("~/");
+               Response.Redirect("~/Games/Details?id=" + game.Id);
             }
         }
 
         private void CheckIfCorrectAnswer()
         {
-            var correctAnswer = this.game.Questions.Skip(int.Parse(Session["quetionIndex"].ToString()))
-                .Take(1)
-                .FirstOrDefault()
-                .TrueAnswer;
+            var index = int.Parse(Session["quetionIndex"].ToString());
+            var questions = (List<Question>)(Session["questions"]);
+            var correctAnswer = questions.Skip(index)
+                                         .Take(1)
+                                         .FirstOrDefault()
+                                         .TrueAnswer;
 
             var userAnswer = this.RadioButtonList.SelectedValue;
             if (userAnswer == correctAnswer)
@@ -156,7 +157,6 @@
             if (this.games.GetById(currentGameId).Creator.UserName == HttpContext.Current.User.Identity.Name)
             {
                 this.game.CreatorScore = score;
-                //this.game.Creator.Score++;
                 this.games.UpdateGame(this.game);
 
             }

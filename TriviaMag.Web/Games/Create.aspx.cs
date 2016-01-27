@@ -65,7 +65,11 @@ namespace TriviaMag.Web.Games
         public IQueryable<User> GetUsers()
         {
             var currentUser = HttpContext.Current.User.Identity.Name;
-            return this.UserService.GetAll().Where(x => x.UserName != currentUser && x.Role !="Admin").OrderBy(x => x.UserName);
+            var users = this.UserService.GetAll()
+                                        .Where(x => x.UserName != currentUser && x.Role != "Admin")
+                                        .OrderBy(x => x.UserName);
+
+            return users;
         }
 
         public void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
@@ -86,7 +90,7 @@ namespace TriviaMag.Web.Games
             var currentGame = (Game)Session["game"];
             var questions = this.QuestionService.GetRandomQuestionsByCategory(currentGame.Category);
 
-            if(currentGame.ReceiverId == null && currentGame.Category == null)
+            if (currentGame.ReceiverId == null && currentGame.Category == null)
             {
                 this.DivLabelErrorMessage.Visible = true;
                 this.LabelErrorMessage.Text = "Second player and category are required!";

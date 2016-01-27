@@ -36,12 +36,13 @@
             return this.users.All().Where(u => u.UserName == username).FirstOrDefault();
         }
 
-        public void UpdateUser(string id, string username, string firstname, string lastname)
+        public void UpdateUser(string id, string username, string firstname, string lastname, string image)
         {
             var currentUsr = this.users.GetById(id);
             currentUsr.UserName = username;
             currentUsr.Firstname = firstname;
             currentUsr.Lastname = lastname;
+            currentUsr.PicturePath = image;
             this.users.Update(currentUsr);
             this.users.SaveChanges();
         }

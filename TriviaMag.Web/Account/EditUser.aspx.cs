@@ -50,7 +50,23 @@ namespace TriviaMag.Web.Account
             {
                 lastname = user.Lastname;
             }
-            this.UserService.UpdateUser(user.Id, username, firstname, lastname);
+
+            string filePathAndName = string.Empty;
+
+            try
+            {
+                filePathAndName = FileUploadControl.Upload() == "" ? null : FileUploadControl.Upload();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return;
+            }
+            if(filePathAndName== null)
+            {
+                filePathAndName = user.PicturePath;  
+            }
+
+            this.UserService.UpdateUser(user.Id, username, firstname, lastname,filePathAndName);
             var result = signinManager.PasswordSignIn(username, this.password.Text, true, shouldLockout: false);
 
             switch (result)

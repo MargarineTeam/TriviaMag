@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="TriviaMag.Web.Account.EditUser" %>
+<%@ Register TagPrefix="uc" TagName="FileUpload" Src="~/Controls/FileUpload.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Edit user information</h1>
     <hr />
@@ -28,6 +29,12 @@
             <div class="col-md-10">
                 <asp:TextBox runat="server" TextMode="Password" ID="password" CssClass="form-control" />
                  <asp:RequiredFieldValidator runat="server" ControlToValidate="password" CssClass="text-danger" ErrorMessage="The password field is required." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="FileUploadControl" CssClass="col-md-2 control-label">Picture</asp:Label>
+            <div class="col-md-10">
+                <uc:FileUpload ID="FileUploadControl" runat="server" />
             </div>
         </div>
         <div class="form-group">

@@ -198,8 +198,10 @@
                                         <asp:Label Text='<%#: Item.ReceiverScore %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%#: Item.Creator.UserName %>' runat="server" Visible='<%# Item.CreatorScore > Item.ReceiverScore %>' />
-                                        <asp:Label Text='<%#: Item.Receiver.UserName %>' runat="server" Visible='<%# Item.ReceiverScore > Item.CreatorScore %>' />
+                                        <asp:Label Text='<%#: Item.Creator.UserName %>' runat="server" Visible='<%# Item.CreatorScore > Item.ReceiverScore || (Item.CreatorScore == Item.ReceiverScore  && Item.CreatorTime < Item.ReceiverTime)%>' />
+                                        <asp:Label Text='<%#: Item.Receiver.UserName %>' runat="server" Visible='<%# Item.ReceiverScore > Item.CreatorScore || (Item.ReceiverScore == Item.CreatorScore  && Item.CreatorTime > Item.ReceiverTime)%>' />
+                                        <asp:Label Text='Tie' runat="server" Visible='<%# Item.ReceiverScore == Item.CreatorScore && Item.CreatorTime == Item.ReceiverTime%>' />
+
                                     </td>
                                     <td>
                                         <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl='<%# string.Format("~/Games/Details?id={0}", Item.Id)%>' class="btn btn-info" Text='Details' />

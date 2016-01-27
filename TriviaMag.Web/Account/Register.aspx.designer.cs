@@ -49,6 +49,15 @@ namespace TriviaMag.Web.Account {
         protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
+        /// RegularExpressionValidatorFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorFirstName;
+        
+        /// <summary>
         /// LastName control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace TriviaMag.Web.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox LastName;
+        
+        /// <summary>
+        /// RegularExpressionValidatorLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorLastName;
         
         /// <summary>
         /// Email control.

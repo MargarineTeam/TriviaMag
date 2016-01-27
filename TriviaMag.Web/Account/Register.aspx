@@ -17,9 +17,8 @@
                 <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
                     ErrorMessage="The username field can contains only letters, numbers, '.' or '_'."
-                    ValidationExpression="^([A-Za-z0-9._])$"
+                    ValidationExpression="^([a-zA-Z0-9_\.]*)$"
                     ControlToValidate="Username" CssClass="text-danger"/>
-
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The username field is required." />
             </div>
@@ -28,6 +27,10 @@
             <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First Name</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorFirstName" runat="server"
+                    ErrorMessage="The First name field can contains only letters and '-'."
+                    ValidationExpression="^([A-Za-z\-]*)$"
+                    ControlToValidate="FirstName" CssClass="text-danger"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
                     CssClass="text-danger" ErrorMessage="The first name field is required." />
             </div>
@@ -36,6 +39,10 @@
             <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last name</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="LastName" CssClass="form-control" />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorLastName" runat="server"
+                    ErrorMessage="The Last name field can contains only letters and '-'."
+                    ValidationExpression="^([A-Za-z\-]*)$"
+                    ControlToValidate="LastName" CssClass="text-danger"/>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName"
                     CssClass="text-danger" ErrorMessage="The last name field is required." />
             </div>

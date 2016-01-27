@@ -65,7 +65,7 @@ namespace TriviaMag.Web.Games
         public IQueryable<User> GetUsers()
         {
             var currentUser = HttpContext.Current.User.Identity.Name;
-            return this.UserService.GetAll().Where(x => x.UserName != currentUser).OrderBy(x => x.UserName);
+            return this.UserService.GetAll().Where(x => x.UserName != currentUser && x.Role !="Admin").OrderBy(x => x.UserName);
         }
 
         public void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)

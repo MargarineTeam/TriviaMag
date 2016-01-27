@@ -18,6 +18,11 @@ namespace TriviaMag.Web.Admin
         [Inject]
         public IQuestionService QuestionService { get; set; }
 
+        public ICollection<Question> QuestionsToBeApproved
+        {
+            get; set;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.User.Identity.IsAuthenticated)
@@ -39,6 +44,17 @@ namespace TriviaMag.Web.Admin
         {
             var questionsToBeApproved = this.QuestionService.GetAllToBeApproved();
             return questionsToBeApproved.AsQueryable();
+        }
+
+        public void ApproveQuestion_Click(object sender, CommandEventArgs e)
+        {
+            var questionId = int.Parse(e.CommandArgument.ToString());
+
+            var question = this.QuestionService.GetById(questionId);
+            question.IsApproved = true;
+            this.QuestionService.UpdateQuestion(question);
+
+            Response.Redirect("~/Admin/AdminApproveQeustons");
         }
     }
 }

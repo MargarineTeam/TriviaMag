@@ -66,7 +66,7 @@
                                 <asp:Label Text='<%#: Item.WrongAnswerThree %>' runat="server" />
                             </td>
                             <td>
-                                <asp:Button CssClass="btn btn-success" Text="Approve" runat="server" />
+                                <asp:Button ID="ApproveQuestion" CssClass="btn btn-success" Text="Approve" runat="server" CommandArgument="<%# Item.Id %>" OnCommand="ApproveQuestion_Click"/>
                             </td>
                         </tr>
                     </ItemTemplate>

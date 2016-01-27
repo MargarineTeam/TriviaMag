@@ -73,7 +73,6 @@ namespace TriviaMag.Web.Games
             int row = 0;
             if (int.TryParse(e.CommandArgument.ToString(), out row))
             {
-                // var row = int.Parse(e.CommandArgument.ToString());
                 var id = this.GridView1.DataKeys[row].Value.ToString();
                 var current = (Game)Session["game"];
                 current.ReceiverId = id;
@@ -86,20 +85,39 @@ namespace TriviaMag.Web.Games
         {
             var currentGame = (Game)Session["game"];
             var questions = this.QuestionService.GetRandomQuestionsByCategory(currentGame.Category);
-            var game = new Game
-            {
-                CreatorId = currentGame.CreatorId,
-                ReceiverId = currentGame.ReceiverId,
-                CreatorScore = currentGame.CreatorScore,
-                ReceiverScore = currentGame.ReceiverScore,
-                IsFinished = currentGame.IsFinished,
-                Category = currentGame.Category
-            };
 
-            game.Questions = questions;
-            GameService.CreateGame(game);
-            Session["game"] = "";
-            Response.Redirect("~/Games/Play?id=" + game.Id);
+            if(currentGame.ReceiverId == null && currentGame.CreatorId == null)
+            {
+                this.DivLabelErrorMessage.Visible = true;
+                this.LabelErrorMessage.Text = "Second player and category are required!";
+            }
+            else if (currentGame.ReceiverId == null)
+            {
+                this.DivLabelErrorMessage.Visible = true;
+                this.LabelErrorMessage.Text = "Second player is required!";
+            }
+            else if (currentGame.Category == null)
+            {
+                this.DivLabelErrorMessage.Visible = true;
+                this.LabelErrorMessage.Text = "Category is required! ";
+            }
+            else
+            {
+                var game = new Game
+                {
+                    CreatorId = currentGame.CreatorId,
+                    ReceiverId = currentGame.ReceiverId,
+                    CreatorScore = currentGame.CreatorScore,
+                    ReceiverScore = currentGame.ReceiverScore,
+                    IsFinished = currentGame.IsFinished,
+                    Category = currentGame.Category
+                };
+
+                game.Questions = questions;
+                GameService.CreateGame(game);
+                Session["game"] = "";
+                Response.Redirect("~/Games/Play?id=" + game.Id);
+            }
         }
     }
 }

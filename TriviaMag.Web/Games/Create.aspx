@@ -3,6 +3,10 @@
 <asp:Content ID="Create" ContentPlaceHolderID="MainContent" runat="server">
     <fieldset>
         <legend>Create Game</legend>
+        <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false" CssClass="text-center">
+            <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
+        </asp:Panel>
+        <br/>
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 style="max-height: 7px">Choose Category</h3>

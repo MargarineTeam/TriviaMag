@@ -42,6 +42,7 @@
                 Response.Redirect("~/");
             }
 
+           
             this.currentGameId = int.Parse(Request.QueryString["id"]);
             this.game = this.games.GetById(this.currentGameId);
 
@@ -50,11 +51,18 @@
                 Response.Redirect("~/");
             }
 
+            if (this.game.Receiver == null)
+            {
+                //TODO:  message and redirect to create game
+                Response.Redirect("~/Games/Create");
+            }
+
+
             if (HttpContext.Current.User.Identity.Name == this.game.Creator.UserName && this.game.IsFinished)
             {
                 Response.Redirect("~/Games/ListGames");
             }
-
+            
             if (HttpContext.Current.User.Identity.Name == this.game.Receiver.UserName && this.game.IsFinished)
             {
                 Response.Redirect("~/Games/ListGames");
@@ -69,6 +77,7 @@
             {
                 Session["score"] = 0;
                 Session["quetionIndex"] = 0;
+                Session["questions"] = this.game.Questions.OrderBy(x => Guid.NewGuid()).ToList();
                 this.RadioButtonList.DataSource = GetAnswersData(0);
                 this.RadioButtonList.DataBind();
             }
@@ -83,7 +92,7 @@
         public IList<string> GetAnswersData(int index)
         {
             var answers = new List<string>();
-            var all = this.game.Questions.ToList();
+            var all = (List<Question>)Session["questions"];
             var test = all[index];
 
             answers.Add(test.WrongAnswerOne);
@@ -97,7 +106,7 @@
         public string GetQuestion()
         {
             var index = int.Parse(Session["quetionIndex"].ToString());
-            var questions = this.game.Questions.ToList();
+            var questions = (List<Question>)Session["questions"];
             var question = questions[index];
             return question.Text;
         }
@@ -106,7 +115,7 @@
         {
             CheckIfCorrectAnswer();
             var currentQuestionIndex = int.Parse(Session["quetionIndex"].ToString()) + 1;
-            var allQuestions = this.game.Questions.ToList();
+            var allQuestions = (List<Question>)Session["questions"];
 
             if (currentQuestionIndex < allQuestions.Count)
             {

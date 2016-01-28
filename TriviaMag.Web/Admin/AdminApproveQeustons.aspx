@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminApproveQeustons.aspx.cs" Inherits="TriviaMag.Web.Admin.AdminApproveQeustons" %>
+﻿<%@ Page Title="Approve Questions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminApproveQeustons.aspx.cs" Inherits="TriviaMag.Web.Admin.AdminApproveQeustons" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Approve fast</h1>

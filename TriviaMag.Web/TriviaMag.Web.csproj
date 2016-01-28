@@ -225,6 +225,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Controls\FileUpload.ascx" />
     <Content Include="Error\404NotFound.aspx" />
+    <Content Include="Error\500.aspx" />
     <Content Include="Questions\CreateQuestion.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -446,6 +447,13 @@
     </Compile>
     <Compile Include="Error\404NotFound.aspx.designer.cs">
       <DependentUpon>404NotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\500.aspx.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\500.aspx.designer.cs">
+      <DependentUpon>500.aspx</DependentUpon>
     </Compile>
     <Compile Include="Questions\CreateQuestion.aspx.cs">
       <DependentUpon>CreateQuestion.aspx</DependentUpon>

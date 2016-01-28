@@ -27,11 +27,14 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.categoriesConstants = new Categories();
-            var categoriesList = this.categoriesConstants.GetCategories();
-            this.categoryDropdown.DataSource = categoriesList;
-            this.categoryDropdown.DataBind();
-            //  this.DivLabelErrorMessage.Visible = false;
+            if (!IsPostBack)
+            {
+                this.categoriesConstants = new Categories();
+                var categoriesList = this.categoriesConstants.GetCategories();
+                this.categoryDropdown.DataSource = categoriesList;
+                this.categoryDropdown.DataBind();
+                //  this.DivLabelErrorMessage.Visible = false;
+            }
         }
 
         protected void SubmitQuestion(object sender, EventArgs e)

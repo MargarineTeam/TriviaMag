@@ -55,7 +55,7 @@
         {
             var allQuestions = this.questions
                                 .All()
-                                .Where(x => x.Category == category)
+                                .Where(x => x.Category == category && x.IsApproved)
                                 .ToList();
 
             var result = this.random

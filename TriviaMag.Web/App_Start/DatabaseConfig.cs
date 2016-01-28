@@ -145,8 +145,7 @@
                     IsFinished = true,
                     Receiver = user2,
                     CreatorScore = 5,
-                    ReceiverScore = 2,
-                    Questions = new List<Question>(questions)
+                    ReceiverScore = 2
                 });
                 db.SaveChanges();
             }

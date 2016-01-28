@@ -20,24 +20,40 @@
                             <tr>
                                 <th class="text-center">
                                     <asp:LinkButton Text="Category" runat="server"
-                                        ID="SortByModel"
+                                        ID="SortByCategory"
                                         CommandName="Sort"
-                                        CommandArgument="Description" />
+                                        CommandArgument="Category" />
                                 </th>
                                 <th class="text-center">
-                                    <asp:Literal Text="Question" runat="server" />
+                                     <asp:LinkButton Text="Question" runat="server"
+                                        ID="Question"
+                                        CommandName="Sort"
+                                        CommandArgument="Text" />
                                 </th>
                                 <th class="text-center">
-                                    <asp:Literal Text="True Answer" runat="server" />
+                                     <asp:LinkButton Text="Answer" runat="server"
+                                        ID="TrueAnswer"
+                                        CommandName="Sort"
+                                        CommandArgument="TrueAnswer" />
                                 </th>
                                 <th class="text-center">
-                                    <asp:Literal Text="Wrong Answer" runat="server" />
+                                    <%--<asp:Literal Text="Wrong Answer" runat="server" />--%>
+                                    <asp:LinkButton Text="Wrong Answer" runat="server"
+                                        ID="WrongAnswerOne"
+                                        CommandName="Sort"
+                                        CommandArgument="WrongAnswerOne" />
                                 </th>
                                 <th class="text-center">
-                                    <asp:Literal Text="Wrong Answer" runat="server" />
+                                    <asp:LinkButton Text="Wrong Answer" runat="server"
+                                        ID="WrongAnswerTwo"
+                                        CommandName="Sort"
+                                        CommandArgument="WrongAnswerTwo" />
                                 </th>
                                 <th class="text-center">
-                                    <asp:Literal Text="Wrong Answer" runat="server" />
+                                    <asp:LinkButton Text="Wrong Answer" runat="server"
+                                        ID="WrongAnswerThree"
+                                        CommandName="Sort"
+                                        CommandArgument="WrongAnswerThree" />
                                 </th>
                                 <th class="text-center"></th>
                             </tr>
@@ -66,7 +82,7 @@
                                 <asp:Label Text='<%#: Item.WrongAnswerThree %>' runat="server" />
                             </td>
                             <td>
-                                <asp:Button ID="ApproveQuestion" CssClass="btn btn-success" Text="Approve" runat="server" CommandArgument="<%# Item.Id %>" OnCommand="ApproveQuestion_Click"/>
+                                <asp:Button ID="ApproveQuestion" CssClass="btn btn-success" Text="Approve" runat="server" CommandArgument="<%# Item.Id %>" OnCommand="ApproveQuestion_Click" />
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -78,21 +94,21 @@
 
             </div>
         </div>
-          <div class="bs-component text-center">
-                <asp:DataPager ID="DataPagerAll" PagedControlID="AllQuestions" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
-                    <Fields>
-                        <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
-                            ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
-                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+        <div class="bs-component text-center">
+            <asp:DataPager ID="DataPagerAll" PagedControlID="AllQuestions" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
+                <Fields>
+                    <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
+                        ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
+                        ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
 
-                        <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
-                            NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
+                    <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
+                        NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
 
-                        <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
-                            ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
-                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
-                    </Fields>
-                </asp:DataPager>
-            </div>
+                    <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
+                        ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
+                        ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                </Fields>
+            </asp:DataPager>
+        </div>
     </div>
 </asp:Content>

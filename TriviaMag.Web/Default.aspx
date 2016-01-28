@@ -3,10 +3,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <div class="text-center">
-        <div class="row">
-        <a href="Games/Create.aspx" class="btn btn-success btn-lg playGamebtn">Play</a>
-
-        </div>
+        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+            <LoggedInTemplate>
+                <div class="row">
+                    <a href="Games/Create.aspx" class="btn btn-success btn-lg playGamebtn">Play</a>
+                </div>
+            </LoggedInTemplate>
+        </asp:LoginView>
         <img src="images/triviamagHome.png" />
         <h1 style="color: #4F3F50;" class="homeMag">Mag</h1>
     </div>

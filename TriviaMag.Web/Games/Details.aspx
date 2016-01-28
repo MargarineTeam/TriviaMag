@@ -13,7 +13,7 @@
                         </div>
                         <div class="text-center">
                             <h3>
-                                <strong>Final Score: <%#: Item.CreatorScore %></strong> - <strong><%#: Item.ReceiverScore %></strong>
+                                Score: <%#: Item.CreatorScore %> - <%#: Item.ReceiverScore %>
                             </h3>
                         </div>
                         <div class="text-center">

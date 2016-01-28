@@ -10,7 +10,7 @@
                 <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
             </asp:Panel>
             <div class="form-group row">
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <asp:Label ID="categoryLabel" runat="server" AssociatedControlID="categoryDropdown" CssClass="control-label">Category:</asp:Label>
                 </div>
                 <div class="col-md-3">

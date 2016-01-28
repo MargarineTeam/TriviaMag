@@ -224,8 +224,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controls\FileUpload.ascx" />
-    <Content Include="CreateGame.aspx" />
-    <Content Include="CreateQuestion.aspx" />
+    <Content Include="Questions\CreateQuestion.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -440,18 +439,11 @@
     <Compile Include="Controls\FileUpload.ascx.designer.cs">
       <DependentUpon>FileUpload.ascx</DependentUpon>
     </Compile>
-    <Compile Include="CreateGame.aspx.cs">
-      <DependentUpon>CreateGame.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreateGame.aspx.designer.cs">
-      <DependentUpon>CreateGame.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CreateQuestion.aspx.cs">
+    <Compile Include="Questions\CreateQuestion.aspx.cs">
       <DependentUpon>CreateQuestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateQuestion.aspx.designer.cs">
+    <Compile Include="Questions\CreateQuestion.aspx.designer.cs">
       <DependentUpon>CreateQuestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">

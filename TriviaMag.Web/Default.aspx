@@ -4,8 +4,7 @@
     <br />
     <div class="text-center">
         <div class="row">
-        <a href="Games/Create.aspx" class="btn btn-success btn-lg playGamebtn">Play</a>
-
+            <a href="Games/Create.aspx" class="btn btn-success btn-lg playGamebtn">Play</a>
         </div>
         <img src="images/triviamagHome.png" />
         <h1 style="color: #4F3F50;" class="homeMag">Mag</h1>

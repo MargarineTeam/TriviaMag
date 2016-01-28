@@ -31,6 +31,7 @@
 ![alt tag](http://puu.sh/mMadZ/8a02189aa4.png)
 
 ####Data Diagram:
+![alt tag](http://puu.sh/mMNas/6341fe93f5.png)
 
 ######Team Repo:
 > [https://github.com/MargarineTeam/TriviaMag.git](https://github.com/MargarineTeam/TriviaMag.git)
